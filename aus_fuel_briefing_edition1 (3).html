@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUS FUEL SECURITY BRIEF — Edition 001</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Syne:wght@400;600;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f6f9;
+    --surface: #ffffff;
+    --surface2: #eef1f5;
+    --border: #c8d4de;
+    --amber: #96580a;
+    --amber-dim: #fef3dc;
+    --red: #c01414;
+    --red-dim: #fde8e8;
+    --green: #1a6e3a;
+    --green-dim: #dff5e8;
+    --cyan: #0a6e6e;
+    --text: #1a2830;
+    --text-muted: #4a6272;
+    --text-dim: #7a96a8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 17px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: var(--surface);
+    border-bottom: 2px solid var(--amber);
+    padding: 20px 32px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .header-left .masthead {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 0.25em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .header-left .title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    color: var(--amber);
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+  }
+
+  .header-left .subtitle {
+    font-size: 17px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    letter-spacing: 0.1em;
+  }
+
+  .header-right {
+    text-align: right;
+  }
+
+  .edition-badge {
+    background: var(--amber);
+    color: #000;
+    font-family: 'Syne Mono', monospace;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 3px 10px;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+
+  .datestamp {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.85;
+  }
+
+  .datestamp .time {
+    color: var(--cyan);
+    font-size: 22px;
+    font-family: 'Syne Mono', monospace;
+    display: block;
+  }
+
+  /* Crisis alert banner */
+  .crisis-banner {
+    background: var(--red-dim);
+    border-top: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    padding: 8px 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+  }
+
+  .crisis-tag {
+    background: var(--red);
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2px 8px;
+    letter-spacing: 0.15em;
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .crisis-text {
+    font-size: 17px;
+    color: #8a0c0c;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 32px 48px;
+  }
+
+  /* Metrics strip */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+
+  .metric {
+    background: var(--surface);
+    padding: 18px 18px;
+    position: relative;
+  }
+
+  .metric-label {
+    font-size: 17px;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .metric-value {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .metric-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .metric-delta {
+    font-size: 15px;
+    margin-top: 2px;
+  }
+
+  .up { color: var(--red); }
+  .down { color: var(--green); }
+  .amber { color: var(--amber); }
+  .crisis-val { color: var(--red); }
+  .warn-val { color: var(--amber); }
+  .ok-val { color: var(--green); }
+  .cyan-val { color: var(--cyan); }
+
+  /* Content columns */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .content-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .full-width { grid-column: 1 / -1; }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .panel-header {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .panel-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  .panel-tag {
+    font-size: 17px;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+  }
+
+  .panel-body {
+    padding: 20px;
+  }
+
+  /* Reserve bars */
+  .reserve-item {
+    margin-bottom: 14px;
+  }
+
+  .reserve-item:last-child { margin-bottom: 0; }
+
+  .reserve-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 17px;
+  }
+
+  .reserve-name { color: var(--text); }
+  .reserve-days {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+  }
+
+  .reserve-bar {
+    height: 6px;
+    background: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reserve-fill {
+    height: 100%;
+    transition: width 1s ease;
+    position: relative;
+  }
+
+  .reserve-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08));
+  }
+
+  .bar-critical { background: var(--red); }
+  .bar-warn { background: var(--amber); }
+  .bar-ok { background: var(--green); }
+
+  .reserve-threshold {
+    position: absolute;
+    top: -2px;
+    height: 10px;
+    width: 1px;
+    background: rgba(0,0,0,0.25);
+  }
+
+  .reserve-note {
+    font-size: 17px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* Price table */
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .price-table tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .price-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .price-table td {
+    padding: 8px 0;
+    font-size: 17px;
+  }
+
+  .price-table td:last-child {
+    text-align: right;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+  }
+
+  .price-table td.fuel-name {
+    color: var(--text-muted);
+    font-size: 15px;
+    letter-spacing: 0.05em;
+  }
+
+  .price-table td.fuel-trend {
+    text-align: center;
+    font-size: 15px;
+  }
+
+  /* Tanker table */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 17px;
+  }
+
+  .data-table th {
+    font-size: 17px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0 8px 8px 0;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-table td {
+    padding: 7px 8px 7px 0;
+    border-bottom: 1px solid rgba(180,200,215,0.5);
+    vertical-align: top;
+  }
+
+  .data-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .data-table .vessel-name {
+    color: var(--cyan);
+    font-weight: 500;
+  }
+
+  .data-table .vessel-type {
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1px 5px;
+    border: 1px solid;
+    display: inline-block;
+    margin-top: 2px;
+  }
+
+  .type-vlcc { color: var(--red); border-color: var(--red-dim); }
+  .type-aframax { color: var(--amber); border-color: var(--amber-dim); }
+  .type-product { color: var(--green); border-color: var(--green-dim); }
+  .type-lpg { color: var(--cyan); border-color: #0a4040; }
+
+  .status-arrived { color: var(--green); font-size: 15px; }
+  .status-expected { color: var(--amber); font-size: 15px; }
+  .status-diverted { color: var(--red); font-size: 15px; }
+
+  /* Situation report */
+  .sitrep-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  .sitrep-item:last-child { border-bottom: none; }
+
+  .sitrep-date {
+    font-size: 17px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    width: 50px;
+    padding-top: 2px;
+  }
+
+  .sitrep-text { color: var(--text); }
+
+  .sitrep-text strong { color: var(--amber); font-weight: 500; }
+
+  /* Strait of Hormuz gauge */
+  .hormuz-gauge {
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  .gauge-label {
+    font-size: 17px;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .gauge-ring {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 10px;
+  }
+
+  .gauge-pct {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .gauge-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* Source row dividers */
+  .section-label {
+    font-size: 17px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    border-top: 1px solid var(--border);
+    padding-top: 4px;
+    margin-top: 4px;
+  }
+
+  /* Supply chain diagram */
+  .supply-chain {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 8px 0;
+    overflow-x: auto;
+  }
+
+  .sc-node {
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .sc-icon {
+    font-size: 22px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .sc-name {
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .sc-pct {
+    font-family: 'Syne', monospace;
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .sc-arrow {
+    font-size: 22px;
+    color: var(--text-dim);
+    flex-shrink: 0;
+    padding: 0 4px;
+  }
+
+  .sc-blocked {
+    position: relative;
+  }
+
+  .sc-blocked::after {
+    content: '✕';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--red);
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  /* Outlook panel */
+  .outlook-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .outlook-card {
+    border: 1px solid var(--border);
+    padding: 12px;
+    background: var(--surface2);
+  }
+
+  .outlook-horizon {
+    font-size: 17px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .outlook-text {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  .horizon-near { color: var(--red); }
+  .horizon-mid { color: var(--amber); }
+  .horizon-far { color: var(--cyan); }
+
+  /* Footer */
+  .footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+  }
+
+  /* Refresh button */
+  .refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid var(--amber);
+    color: var(--amber);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 15px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 24px;
+  }
+
+  .refresh-btn:hover {
+    background: var(--amber);
+    color: #000;
+  }
+
+  .refresh-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* Note box */
+  .note-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--amber);
+    padding: 10px 14px;
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+
+  .note-box strong { color: var(--amber); }
+
+  /* Mini separator */
+  .sep {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 16px 0;
+  }
+
+  /* ── Visible hyperlinks ───────────────────────────────────── */
+  a {
+    color: var(--cyan);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(43,197,197,0.45);
+    transition: text-decoration-color 0.15s, color 0.15s;
+  }
+  a:hover {
+    color: #fff;
+    text-decoration-color: var(--cyan);
+  }
+  /* Footer links stay muted but still underlined */
+  .footer a {
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(90,122,130,0.4);
+  }
+  .footer a:hover { color: var(--cyan); }
+
+  /* Source list panel */
+  .source-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .source-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .source-item .src-label {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  /* Responsive */
+  @media (max-width: 900px) {
+    .metrics-grid { grid-template-columns: repeat(3, 1fr); }
+    .content-grid, .content-grid-3 { grid-template-columns: 1fr; }
+    .outlook-grid { grid-template-columns: 1fr; }
+  }
+
+  .loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(244,246,249,0.93);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .loading-overlay.active {
+    display: flex;
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--border);
+    border-top-color: var(--amber);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .loading-text {
+    font-size: 17px;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Fetching latest intelligence...</div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="masthead">Queensland / Australia Energy Intelligence</div>
+    <div class="title">FUEL SECURITY BRIEF</div>
+    <div class="subtitle">Iran War Edition · Southeast Queensland & National</div>
+  </div>
+  <div class="header-right">
+    <div class="edition-badge">EDITION 002</div>
+    <div class="datestamp">
+      <span class="time">18 MAR 2026</span>
+      Day 18 of US-Israel War on Iran<br>
+      Day 18 of Strait of Hormuz Crisis<br>
+      Brisbane, QLD · AEST
+    </div>
+  </div>
+</div>
+
+<!-- CRISIS BANNER -->
+<div class="crisis-banner">
+  <div class="crisis-tag">⚠ NATIONAL CRISIS</div>
+  <div class="crisis-text">Fujairah bypass route attacked by Iranian drones — fires at UAE Shah gas field &amp; Fujairah OIZ ▪ Brent crude ~$100–103/bbl ▪ Hormuz avg 13 transits/day vs 153 pre-war ▪ Iran selectively allowing Indian, Turkish, Pakistani vessels ▪ AUS petrol 29 days / diesel 26 days ▪ Brisbane ULP avg 233.5¢/L ▪ US Navy escorts:"not ready" — possibly end of March</div>
+</div>
+
+<div class="main">
+
+  <!-- TOOLBAR -->
+  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+    <button class="refresh-btn" onclick="refreshReport()" id="refreshBtn">
+      ⟳ &nbsp;Update with Latest Intelligence
+    </button>
+    <button class="refresh-btn" onclick="saveEdition()" id="saveBtn" style="display:none; border-color: var(--green); color: var(--green);">
+      ↓ &nbsp;Save This Edition
+    </button>
+    <div style="color: var(--text-dim); flex: 1;" id="lastUpdated">Edition 002 · Compiled 18 Mar 2026, AEST · Sources: Commodity.com, BP TGP, Petrolmate, SBS, CNBC, Al Jazeera, CSIS, ABC News, EIA, Wikipedia Hormuz Crisis</div>
+  </div>
+
+  <div class="note-box">
+    <strong>Workflow:</strong> Click <strong>Update</strong> to fetch the latest intelligence summary — this stamps today's date into the report header and refreshes the situation panel via the Claude API. Then click <strong>Save This Edition</strong> to download a dated <code>.html</code> file (e.g. <code>fuel_brief_2026-03-18.html</code>) to your folder of choice. Set your browser's download location under Settings → Downloads. Each saved file is fully self-contained and opens in any browser offline. For live price data between saves: <strong>petrolmate.com.au/city/qld/brisbane</strong> · <strong>aip.com.au/pricing</strong> · <strong>vesselfinder.com/ports/AUBNE001</strong>
+  </div>
+
+  <!-- KEY METRICS STRIP -->
+  <div class="metrics-grid">
+    <div class="metric">
+      <div class="metric-label">Brent Crude <span id="m-brent-src" style="color:var(--text-dim);"><a href="https://commodity.com/energy/crude-oil/" target="_blank" style="color:var(--cyan);">🌐 Live</a></span></div>
+      <div class="metric-value crisis-val" id="m-brent-val">$100.22</div>
+      <div class="metric-sub" id="m-brent-sub">USD / barrel · 18 Mar (Commodity.com)</div>
+      <div class="metric-delta up" id="m-brent-delta">▼ –3.51% today · ▲ +43% vs pre-war (~$70)</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">WTI Crude <span id="m-wti-src" style="color:var(--text-dim);">🌐 Live</span></div>
+      <div class="metric-value crisis-val" id="m-wti-val">$95.11</div>
+      <div class="metric-sub" id="m-wti-sub">USD / barrel · 18 Mar (Commodity.com)</div>
+      <div class="metric-delta up" id="m-wti-delta">▼ –4.27% today · ▲ +36% vs pre-war</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">AUD/USD <span id="m-fx-src" style="color:var(--green);">🌐 Live</span></div>
+      <div class="metric-value cyan-val" id="m-fx-val">0.625</div>
+      <div class="metric-sub" id="m-fx-sub">Rate · auto-loads on open</div>
+      <div class="metric-delta" id="m-fx-delta" style="color:var(--text-muted);">Affects AUS import cost</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Brisbane ULP 91 <span id="m-ulp-src" style="color:var(--text-dim);"><a href="https://www.petrolmate.com.au/city/qld/brisbane" target="_blank" style="color:var(--cyan);">🌐 Petrolmate</a></span></div>
+      <div class="metric-value warn-val" id="m-ulp-val">233.5¢</div>
+      <div class="metric-sub" id="m-ulp-sub">cents / litre avg · 17 Mar 11pm (Petrolmate)</div>
+      <div class="metric-delta up" id="m-ulp-delta">▲ +4.5¢ since Ed.001 · <a href="https://www.bp.com/en_au/australia/home/products-and-services/fuels/terminal-gate-price.html" target="_blank" style="color:var(--cyan);">BP TGP</a> today: 224.52¢</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">AUS Fuel Reserves <span id="m-res-src" style="color:var(--text-dim);"><a href="https://www.sbs.com.au/news/topic/australia" target="_blank" style="color:var(--cyan);">SBS</a>/<a href="https://www.abc.net.au/news" target="_blank" style="color:var(--cyan);">ABC</a></span></div>
+      <div class="metric-value crisis-val" id="m-res-val">29</div>
+      <div class="metric-sub" id="m-res-sub">days petrol · 26d diesel · 29d jet fuel</div>
+      <div class="metric-delta up" id="m-res-delta">▼ Falling · 762ML MSO release underway</div>
+    </div>
+  </div>
+
+  <!-- ROW 1: RESERVES + SITUATION -->
+  <div class="content-grid">
+
+    <!-- RESERVES PANEL -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Australia Fuel Reserve Status</div>
+        <div class="panel-tag">MSO / Consumption Cover · as of 14–16 Mar</div>
+      </div>
+      <div class="panel-body">
+
+        <div class="reserve-item">
+          <div class="reserve-label">
+            <span class="reserve-name">PETROL (ULP) — National</span>
+            <span class="reserve-days crisis-val">29 days</span>
+          </div>
+          <div class="reserve-bar">
+            <div class="reserve-fill bar-critical" style="width: 32.2%"></div>
+            <div class="reserve-threshold" style="left: 100%; display: none;"></div>
+          </div>
+          <div class="reserve-note">IEA requirement: 90 days &nbsp;·&nbsp; Currently 32% of target &nbsp;·&nbsp; 762ML reserve release authorised</div>
+        </div>
+
+        <div class="reserve-item">
+          <div class="reserve-label">
+            <span class="reserve-name">DIESEL — National</span>
+            <span class="reserve-days crisis-val">26 days</span>
+          </div>
+          <div class="reserve-bar">
+            <div class="reserve-fill bar-critical" style="width: 28.9%"></div>
+          </div>
+          <div class="reserve-note">Critical for freight, agriculture, emergency services &nbsp;·&nbsp; NSW Farmers demand priority access</div>
+        </div>
+
+        <div class="reserve-item">
+          <div class="reserve-label">
+            <span class="reserve-name">JET FUEL — National</span>
+            <span class="reserve-days warn-val">29 days</span>
+          </div>
+          <div class="reserve-bar">
+            <div class="reserve-fill bar-critical" style="width: 32.2%"></div>
+          </div>
+          <div class="reserve-note">Gulf airspace closures compounding jet fuel pressure globally</div>
+        </div>
+
+        <hr class="sep">
+        <div class="section-label">Domestic Refining Capacity</div>
+        <div style="margin-top: 10px;">
+          <div class="sitrep-item" style="padding: 6px 0;">
+            <div class="sitrep-date">LYTTON</div>
+            <div class="sitrep-text"><strong>Ampol Lytton Refinery, Brisbane</strong> — 6.5BL/yr capacity, 550 staff. Currently redirecting <em>high-sulphur</em> output (normally exported) to regional QLD/NSW towns under emergency Bowen directive. Ultra-low sulphur upgrade in progress.</div>
+          </div>
+          <div class="sitrep-item" style="padding: 6px 0;">
+            <div class="sitrep-date">GEELONG</div>
+            <div class="sitrep-text"><strong>Viva Energy Geelong Refinery, VIC</strong> — Australia's only other operating refinery. Together, the two supply &lt;20% of national liquid fuel demand.</div>
+          </div>
+        </div>
+
+        <hr class="sep">
+        <div class="section-label">Government Emergency Actions</div>
+        <div style="color: var(--text); margin-top: 10px; line-height: 1.9;">
+          ✓ &nbsp;762 million litres petrol &amp; diesel released from MSO reserves<br>
+          ✓ &nbsp;Fuel quality standards lowered 60 days (adds ~100ML/month)<br>
+          ✓ &nbsp;Lytton high-sulphur fuel redirected domestically<br>
+          ✓ &nbsp;IEA: 400M barrel global emergency release (AUS portion TBC)<br>
+          — &nbsp;Navy escort for tankers: US"not ready" — possible by end of March<br>
+          — &nbsp;90-day IEA reserve requirement: Australia non-compliant since 2012
+        </div>
+      </div>
+    </div>
+
+    <!-- SITUATION PANEL -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Situation Report — Iran War / Hormuz</div>
+        <div class="panel-tag">Day 17 · 17 Mar 2026</div>
+      </div>
+      <div class="panel-body">
+
+        <!-- Hormuz flow indicator -->
+        <div style="display: flex; align-items: center; gap: 20px; padding: 10px 0 14px; border-bottom: 1px solid var(--border); margin-bottom: 12px;">
+          <div>
+            <div class="gauge-label">Hormuz Oil Flow</div>
+            <div class="gauge-pct">~0%</div>
+            <div class="gauge-desc">of normal 20M bbl/day</div>
+          </div>
+          <div style="flex: 1;">
+            <div style="height: 6px; background: var(--border); margin-bottom: 8px;">
+              <div style="width: 3%; height: 100%; background: var(--red);"></div>
+            </div>
+            <div style="color: var(--text-muted); line-height: 1.85;">
+              First non-Iranian AIS-broadcast transit recorded Mar 15 (Aframax <em>Karachi</em> — Das crude) — possible negotiated safe passage signal. Hundreds of tankers remain anchored outside strait.
+            </div>
+          </div>
+        </div>
+
+        <div class="sitrep-item">
+          <div class="sitrep-date">28 FEB</div>
+          <div class="sitrep-text">US and Israel strike Iranian military targets. War begins. Outgoing Hormuz tanker traffic surges in final hours before closure; 17 tankers transit. Three hit near strait.</div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">2–3 MAR</div>
+          <div class="sitrep-text">Brent spikes 10–13% to $80–82. Iran closes Hormuz. <strong>Qatar declares force majeure on LNG contracts</strong>. Kuwait force majeure 7 Mar. Tanker traffic drops ~70% then to near zero.</div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">8 MAR</div>
+          <div class="sitrep-text">Brent crosses <strong>US$100/barrel</strong> for first time since 2022. Gulf states (Saudi, UAE, Iraq, Kuwait) collectively reduce output by 6.7M bbl/day.</div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">10–11 MAR</div>
+          <div class="sitrep-text">Brent peaks near <strong>US$126/barrel</strong>. Conflicting Hormuz reports spark 19% WTI intraday swing. Three tankers hit including Thai vessel <em>Mayuree Naree</em> near Oman. Iraq tanker attacked off Basra.</div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">13 MAR</div>
+          <div class="sitrep-text">IEA announces <strong>400M barrel emergency reserve release</strong> — largest ever. Covers ~4 days global consumption. Iran IRGC vows"not a litre" through Hormuz for US/Israel-linked vessels. IRGC threatens $200/bbl.</div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">15 MAR</div>
+          <div class="sitrep-text">Aframax <em>Karachi</em> — first non-Iranian AIS-broadcast vessel to transit Hormuz. Possible negotiated safe passage. Brent settles ~$103.</div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">16 MAR</div>
+          <div class="sitrep-text">Brent $101.93 (–2.4%), WTI $94.62 (–4.1%). Trump says oil will"drop like a rock" when war ends. US Energy Secretary: navy escorts"not ready" but possible by month-end. Qatar: second wave of Iranian missiles intercepted. <strong>UK PM Starmer:"We will not be drawn into the wider war."</strong> Germany and Greece rule out military involvement in Hormuz.</div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">14–16 MAR</div>
+          <div class="sitrep-text"><strong>UAE Fujairah bypass route attacked.</strong> Iranian drones strike UAE's Shah gas field (world's largest ultra-sour gas development) and the Fujairah Oil Industry Zone — a critical hub for crude exports that bypasses Hormuz. Dubai airport briefly shut after drone hits nearby fuel tank. Fujairah was one of only two alternative routes to Australia's supply chain. Operations at Shah field suspended.</div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">16 MAR</div>
+          <div class="sitrep-text"><strong>Selective passage emerging.</strong> Iran's Foreign Minister Araghchi:"The strait is open — only closed to our enemies." Iranian, Indian (2 LPG carriers), Turkish (1 vessel), Pakistani (Aframax <em>Karachi</em>) ships now transiting. Iran considering yuan-denominated passage for limited tankers. India freed 3 seized Iranian tankers to secure passage rights. <strong>22 Indian ships</strong> waiting Iranian confirmation.</div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">17–18 MAR</div>
+          <div class="sitrep-text">Brent ~$100–103. <strong>Hormuz: 13 transits/day average since 1 Mar vs 153/day pre-war (–91%)</strong> per CSIS/Starboard Maritime AIS data. Iran's new supreme leader Mojtaba Khamenei says closure must be"sustained as a tool to pressure the enemy." US Treasury Sec. Bessent: US"fine with" Iranian, Indian, Chinese ships getting through for now. Naval escorts:"not ready" — possibly end of March. Australian Brisbane ULP retail avg 233.5¢/L (Petrolmate). BP TGP Brisbane today: diesel 261.9¢, ULP 224.5¢.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2: PRICES + SUPPLY CHAIN -->
+  <div class="content-grid-3">
+
+    <!-- BRISBANE PRICES -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Brisbane Pump Prices</div>
+        <div class="panel-tag">c/litre · ~17 Mar 2026</div>
+      </div>
+      <div class="panel-body">
+        <table class="price-table">
+          <tr>
+            <td class="fuel-name">Unleaded 91 (ULP)<br><span style="color: var(--text-dim);">Retail avg · Petrolmate</span></td>
+            <td class="fuel-trend up">▲</td>
+            <td style="color: var(--amber);">233.5¢</td>
+          </tr>
+          <tr>
+            <td class="fuel-name">ULP 91 — Terminal Gate<br><span style="color: var(--text-dim);">BP TGP Brisbane · 18 Mar</span></td>
+            <td class="fuel-trend" style="color:var(--cyan);">→</td>
+            <td style="color: var(--cyan);">224.5¢</td>
+          </tr>
+          <tr>
+            <td class="fuel-name">E10 Ethanol Blend</td>
+            <td class="fuel-trend up">▲</td>
+            <td style="color: var(--amber);">226.3¢</td>
+          </tr>
+          <tr>
+            <td class="fuel-name">Premium 95<br><span style="color: var(--text-dim);">BP TGP: 234.1¢</span></td>
+            <td class="fuel-trend up">▲</td>
+            <td style="color: var(--amber);">245.5¢</td>
+          </tr>
+          <tr>
+            <td class="fuel-name">Diesel<br><span style="color: var(--text-dim);">BP TGP: 261.9¢</span></td>
+            <td class="fuel-trend up">▲</td>
+            <td style="color: var(--red);">271.1¢</td>
+          </tr>
+          <tr>
+            <td class="fuel-name">LPG</td>
+            <td class="fuel-trend" style="color: var(--green);">→</td>
+            <td style="color: var(--green);">113.2¢</td>
+          </tr>
+        </table>
+        <hr class="sep">
+        <div style="color: var(--text-muted); line-height: 1.85;">
+          <strong style="color: var(--text);">Pre-war baseline (28 Feb):</strong> ~179¢ ULP<br>
+          <strong style="color: var(--text);">Rise since war:</strong> +54.5¢/L (+30%) to 18 Mar<br>
+          <strong style="color: var(--amber);">TGP vs retail gap:</strong> ~9¢ — normal (margins holding)<br>
+          <strong style="color: var(--text);">Cheapest suburb:</strong> Toogoolawah 124.2¢<br>
+          <strong style="color: var(--text);">Best day to fill:</strong> Tuesday (QLD)<br>
+          <strong style="color: var(--red);">ACCC:</strong> Letters sent to 7-Eleven, Ampol, BP, Chevron, Mobil, United, Viva, EG —"explain your pricing"<br>
+          <strong style="color: var(--text);">Source:</strong> Petrolmate (retail avg 17 Mar 11pm) · BP TGP PDF (18 Mar)
+        </div>
+      </div>
+    </div>
+
+    <!-- SEQ PRICE TREND -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Price History — Brisbane ULP 91</div>
+        <div class="panel-tag">cents/litre · Dec 2025 – Mar 2026</div>
+      </div>
+      <div class="panel-body">
+        <canvas id="priceChart" width="320" height="180"></canvas>
+        <hr class="sep">
+        <div style="color: var(--text-muted); line-height: 1.85;">
+          <strong style="color: var(--amber);">Key price events:</strong><br>
+          Dec 2025: 155¢ &nbsp;·&nbsp; Avg 3-mo: 164¢<br>
+          16 Feb 2026: 155¢ (cycle low)<br>
+          28 Feb: War starts &nbsp;·&nbsp; 9 Mar: 187¢ (GlobalPetrolPrices)<br>
+          17 Mar: ~229¢ (avg, Petrolmate)<br>
+          <br>
+          Source: GlobalPetrolPrices.com, Petrolmate, ACCC
+        </div>
+      </div>
+    </div>
+
+    <!-- CRUDE BENCHMARK TREND -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Crude Oil Benchmarks</div>
+        <div class="panel-tag">USD/barrel · Feb–Mar 2026</div>
+      </div>
+      <div class="panel-body">
+        <canvas id="crudeChart" width="320" height="180"></canvas>
+        <hr class="sep">
+        <div style="color: var(--text-muted); line-height: 1.85;">
+          <strong style="color: var(--text);">NRMA Benchmark data (16 Mar):</strong><br>
+          Tapis: US$101.8 &nbsp;·&nbsp; Mogas95: US$139.5<br>
+          Gasoil (diesel): US$179.7<br>
+          <br>
+          <strong style="color: var(--amber);">AUD/USD factor:</strong> ~0.625<br>
+          Rising USD impact adds further cost pressure on Australian imports.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VESSEL TYPE QUICK REFERENCE (compact) -->
+  <div style="background: var(--surface2); border: 1px solid var(--border); padding: 12px 20px; margin-bottom: 16px; display: flex; gap: 24px; flex-wrap: wrap; align-items: baseline; ">
+    <span style="font-family:'Syne',sans-serif; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted);">Vessel types:</span>
+    <span><span style="color:var(--red); font-weight:700;">VLCC</span> — very large crude (too big for Brisbane)</span>
+    <span><span style="color:var(--amber); font-weight:700;">Aframax</span> — mid crude → Lytton Refinery (2–3 wk lag to pump)</span>
+    <span><span style="color:var(--green); font-weight:700;">MR / LR Product Tanker</span> — <em>ready-to-use</em> petrol &amp; diesel → terminals (days to pump) <strong>← watch these</strong></span>
+    <span><span style="color:var(--cyan); font-weight:700;">LNG / LPG</span> — gas carriers, not road fuel</span>
+  </div>
+
+  <!-- ROW 3B: INFLOW VOLUME TRACKER (FULL WIDTH) -->
+  <div class="panel full-width" style="margin-bottom: 20px;">
+    <div class="panel-header">
+      <div class="panel-title">National Fuel Inflow Volume Tracker</div>
+      <div class="panel-tag">Australia diesel &amp; petrol imports · Q1 cumulative kt · Kpler / AIP · as of ~10 Mar 2026</div>
+    </div>
+    <div class="panel-body">
+
+      <!-- STATUS CARDS -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+
+        <div style="background: var(--surface2); border-left: 5px solid var(--green); padding: 20px 22px;">
+          <div style="font-weight: 700; color: var(--text-muted); margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase;">Now · Q1 2026 Inflow</div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 2.4em; font-weight: 800; color: var(--green); line-height: 1; margin-bottom: 10px;">HOLDING</div>
+          <div style="color: var(--text-muted); line-height: 1.8;">Diesel ~5,776 kt Q1 proj. Tanker arrivals at broadly normal volumes. Current shortages are <strong style="color:var(--text);">distribution &amp; panic-buying driven</strong>, not an import collapse.</div>
+        </div>
+
+        <div style="background: var(--surface2); border-left: 5px solid var(--amber); padding: 20px 22px;">
+          <div style="font-weight: 700; color: var(--text-muted); margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase;">Forward Signal · Apr–May 2026</div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 2.4em; font-weight: 800; color: var(--amber); line-height: 1; margin-bottom: 10px;">AT RISK</div>
+          <div style="color: var(--text-muted); line-height: 1.8;">Korean/Singapore refineries (65% of AUS imports) facing crude shortages from Hormuz closure. Product tanker volumes expected to tighten from late April.</div>
+        </div>
+
+        <div style="background: var(--surface2); border-left: 5px solid var(--red); padding: 20px 22px;">
+          <div style="font-weight: 700; color: var(--text-muted); margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase;">Pipeline Lead Time</div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 2.4em; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 10px;">3–6 WKS</div>
+          <div style="color: var(--text-muted); line-height: 1.8;">Lag from Asian refinery crude shortage to reduced fuel at Australian ports. China already imposing fuel export curbs. Wave front arrives ~late April.</div>
+        </div>
+
+      </div>
+
+      <!-- FIGURES HEADER -->
+      <div style="border-top: 2px solid var(--border); padding-top: 16px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+        <div style="font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05em; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber);">§ Figures — Q1 Cumulative Import Volumes, Australia (2021–2026)</div>
+        <div style="color: var(--text-muted);">Source: <a href="https://kpler.com" target="_blank">Kpler</a> · <a href="https://www.aip.com.au/pricing" target="_blank">AIP</a> · Q1 2026 = projection to end-March</div>
+      </div>
+
+      <!-- THREE CHARTS -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 16px;">
+
+        <!-- FIG 1: DIESEL -->
+        <div style="background: var(--surface2); border: 1px solid var(--border); padding: 20px;">
+          <div style="font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;">Fig 1 · Diesel Imports</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+            <div style="font-family:'Syne',sans-serif; font-size: 1.9em; font-weight:800; color:var(--amber);" id="fig-diesel-kt">5,776 kt</div>
+            <div id="fig-diesel-delta" style="color: var(--green); font-weight: 600;">▼ –3.5% vs 2025</div>
+          </div>
+          <canvas id="inflowChart" width="300" height="160" style="margin-bottom: 12px;"></canvas>
+          <div style="color: var(--text-muted); line-height: 1.8;" id="fig-diesel-narrative">
+            <strong style="color:var(--text);">Status: HOLDING</strong> — arrivals broadly normal. IOR Lytton adds 12-day local buffer. Risk: Asian run cuts reduce loadings from ~late April.
+          </div>
+        </div>
+
+        <!-- FIG 2: PETROL -->
+        <div style="background: var(--surface2); border: 1px solid var(--border); padding: 20px;">
+          <div style="font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;">Fig 2 · Petrol Imports</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+            <div style="font-family:'Syne',sans-serif; font-size: 1.9em; font-weight:800; color:var(--amber);" id="fig-petrol-kt">3,210 kt</div>
+            <div id="fig-petrol-delta" style="color: var(--red); font-weight: 600;">▼ –8.2% vs 2025</div>
+          </div>
+          <canvas id="petrolInflowChart" width="300" height="160" style="margin-bottom: 12px;"></canvas>
+          <div style="color: var(--text-muted); line-height: 1.8;" id="fig-petrol-narrative">
+            <strong style="color:var(--amber);">Status: TIGHTENING</strong> — below recent-year average. Exxon/Vitol US Gulf shipments (~600K bbl, mid-Mar) partially offset. Gasoline most exposed of all fuels.
+          </div>
+        </div>
+
+        <!-- FIG 3: LNG -->
+        <div style="background: var(--surface2); border: 1px solid var(--border); padding: 20px;">
+          <div style="font-weight: 700; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px;">Fig 3 · LNG Imports</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+            <div style="font-family:'Syne',sans-serif; font-size: 1.9em; font-weight:800; color:var(--red);" id="fig-lng-kt">0 kt</div>
+            <div id="fig-lng-delta" style="color: var(--red); font-weight: 600;">▼ –100% · Force majeure</div>
+          </div>
+          <canvas id="lngInflowChart" width="300" height="160" style="margin-bottom: 12px;"></canvas>
+          <div style="color: var(--text-muted); line-height: 1.8;" id="fig-lng-narrative">
+            <strong style="color:var(--red);">Status: DISRUPTED</strong> — Qatar force majeure 4 Mar, Kuwait 7 Mar. <strong style="color:var(--text);">LNG ≠ road fuel</strong> — affects gas-fired power generation. Brisbane grid impact minor short-term; spot gas prices surging.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FOOTNOTE -->
+      <div style="color: var(--text-muted); line-height: 1.8; border-top: 1px solid var(--border); padding-top: 12px;" id="fig-source-note">
+        Volumes in kilotonnes (kt), Q1 cumulative Jan–Mar. Q1 2026 = projection to end-March based on Kpler vessel data captured ~10 Mar 2026.
+        <span id="fig-last-updated" style="color:var(--amber);"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 3C: SUPPLY CHAIN + TANKER TABLES (TWO COLUMNS) -->
+  <div class="content-grid">
+
+    <!-- AUSTRALIA SUPPLY CHAIN -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Australia Fuel Import Supply Chain</div>
+        <div class="panel-tag">Share of refined fuel imports · 2025 data (COMTRADE/AIP)</div>
+      </div>
+      <div class="panel-body">
+        <div class="supply-chain">
+          <div class="sc-node">
+            <span class="sc-icon">🛢️</span>
+            <div class="sc-name">Persian Gulf<br>Producers</div>
+            <div class="sc-pct warn-val">~59%</div>
+          </div>
+          <div class="sc-arrow sc-blocked">→</div>
+          <div class="sc-node">
+            <span class="sc-icon">🌊</span>
+            <div class="sc-name">Strait of<br>Hormuz</div>
+            <div class="sc-pct crisis-val">CLOSED</div>
+          </div>
+          <div class="sc-arrow">→</div>
+          <div class="sc-node">
+            <span class="sc-icon">🏭</span>
+            <div class="sc-name">Refineries<br>Korea/SG/MY</div>
+            <div class="sc-pct warn-val">65%</div>
+          </div>
+          <div class="sc-arrow">→</div>
+          <div class="sc-node">
+            <span class="sc-icon">🚢</span>
+            <div class="sc-name">Tankers to<br>Australia</div>
+            <div class="sc-pct warn-val">~90%</div>
+          </div>
+          <div class="sc-arrow">→</div>
+          <div class="sc-node">
+            <span class="sc-icon">⚓</span>
+            <div class="sc-name">Port of<br>Brisbane</div>
+            <div class="sc-pct ok-val">QLD Hub</div>
+          </div>
+        </div>
+
+        <hr class="sep">
+
+        <div style="color: var(--text-muted); line-height: 1.9; margin-bottom: 16px;">
+          <strong style="color: var(--text);">Top suppliers:</strong>
+          🇰🇷 Korea 26% · 🇸🇬 Singapore 20% · 🇲🇾 Malaysia 18% · Japan, Taiwan, Vietnam, India<br>
+          <strong style="color: var(--amber);">Hormuz exposure:</strong> ~59% of Korea/Singapore crude transits Hormuz. Disruption lag to Australia: <strong>3–6 weeks</strong>.<br>
+          <strong style="color: var(--cyan);">AUS leverage:</strong> World's 2nd largest LNG exporter — Korea &amp; Japan are both our top fuel suppliers and biggest LNG customers.<br>
+          <strong style="color: var(--amber);">Alt-route cap:</strong> Yanbu + Fujairah = 4.2M bbl/day max vs 20M bbl/day normal Hormuz flow.
+        </div>
+
+        <div style="border-left: 5px solid var(--red); background: var(--red-dim); padding: 14px 16px; margin-bottom: 12px; line-height: 1.85;">
+          <strong style="color: var(--red);">⚠ 14–16 Mar: Fujairah bypass attacked.</strong> Iranian drones struck UAE's Fujairah Oil Industry Zone and Shah gas field — terminus of the Abu Dhabi Crude Oil Pipeline. Both Hormuz bypass routes (Yanbu + Fujairah) are now compromised.
+        </div>
+
+        <div style="border-left: 5px solid var(--green); background: var(--green-dim); padding: 14px 16px; margin-bottom: 12px; line-height: 1.85;">
+          <strong style="color: var(--green);">Selective passage emerging.</strong> Iran allowing Indian, Turkish, Pakistani ships through Hormuz. 22 Indian ships awaiting confirmation. Yuan-denominated passage under consideration. Not yet systematic.
+        </div>
+
+        <div style="border-left: 5px solid var(--cyan); background: var(--surface2); padding: 14px 16px; line-height: 1.85;">
+          <strong style="color: var(--cyan);">Emergency shipments en route:</strong> ExxonMobil/Vitol MR tankers <em>Largo Eagle</em> and <em>Nord Ventura</em> loading Houston ~13–18 Mar, carrying ~600K bbl. Est. arrival Australia late April. Charter cost ~$6M/vessel vs ~$600K normal. Source: <a href="https://www.reuters.com/business/energy/" target="_blank">Reuters</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TANKER MOVEMENT TABLES — THREE TIERS -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Tanker Movement Intelligence — QLD &amp; Australia</div>
+        <div class="panel-tag">Feb 17 – Mar 17 2026 · Three-tier classification</div>
+      </div>
+      <div class="panel-body">
+
+                <!-- TIER 1: CONFIRMED BRISBANE ARRIVALS -->
+        <div style="letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--green-dim);">
+          ▶ TIER 1 — Confirmed Arrivals / Expected: Port of Brisbane (Lytton)
+        </div>
+        <table class="data-table" style="margin-bottom: 14px;">
+          <thead>
+            <tr>
+              <th>Vessel</th>
+              <th>Class / Cargo</th>
+              <th>Size / DWT</th>
+              <th>Date (LT)</th>
+              <th>Confidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="vessel-name">FOREVER ASSURANCE</span></td>
+              <td><span class="vessel-type type-product">Oil Products</span><br><span style="color:var(--text-muted);">Petrol / Diesel / Jet</span></td>
+              <td>183m · 49,999 DWT</td>
+              <td>8 Mar · 09:03</td>
+              <td><span class="status-arrived">● CONFIRMED</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">HAFNIA RAVEN</span></td>
+              <td><span class="vessel-type type-product">Chem / Oil Products</span><br><span style="color:var(--text-muted);">Refined products</span></td>
+              <td>183m · 49,999 DWT</td>
+              <td>8 Mar · 09:00</td>
+              <td><span class="status-arrived">● CONFIRMED</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">LIGURIAN SEA</span></td>
+              <td><span class="vessel-type type-aframax">Crude Oil</span><br><span style="color:var(--text-muted);">→ Lytton Refinery</span></td>
+              <td>250m · 116,715 DWT</td>
+              <td>9 Mar · 21:00</td>
+              <td><span class="status-arrived">● CONFIRMED</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">Unnamed tankers</span></td>
+              <td><span class="vessel-type type-product">Product</span><br><span style="color:var(--text-muted);">Normal flow continuing</span></td>
+              <td>~183m class</td>
+              <td>Feb–Mar (ongoing)</td>
+              <td><span style="color: var(--text-muted);">○ ESTIMATED</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- TIER 2: EN ROUTE TO AUSTRALIA -->
+        <div style="letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--amber-dim);">
+          ▶ TIER 2 — Confirmed En Route to Australia (not yet arrived)
+        </div>
+        <table class="data-table" style="margin-bottom: 14px;">
+          <thead>
+            <tr>
+              <th>Vessel</th>
+              <th>Class / Cargo</th>
+              <th>Origin</th>
+              <th>Loading</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="vessel-name">LARGO EAGLE</span><br><span style="color:var(--text-muted);">Exxon/Vitol charter</span></td>
+              <td><span class="vessel-type type-product">MR Tanker</span><br><span style="color:var(--text-muted);">~300K bbl gasoline</span></td>
+              <td>Houston, US Gulf</td>
+              <td>13–16 Mar</td>
+              <td><span class="status-expected">◆ LOADING/DEPARTED</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">NORD VENTURA</span><br><span style="color:var(--text-muted);">Exxon/Vitol charter</span></td>
+              <td><span class="vessel-type type-product">MR Tanker</span><br><span style="color:var(--text-muted);">~300K bbl gasoline/diesel</span></td>
+              <td>Houston, US Gulf</td>
+              <td>15–18 Mar</td>
+              <td><span class="status-expected">◆ LOADING</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">SHENLONG SUEZMAX</span><br><span style="color:var(--text-muted);">Saudi crude · Liberia flag</span></td>
+              <td><span class="vessel-type type-aframax">Suezmax · Crude</span><br><span style="color:var(--text-muted);">Saudi Arabian crude</span></td>
+              <td>Saudi Arabia via Hormuz</td>
+              <td>Transited ~12 Mar</td>
+              <td><span class="status-arrived">● CONFIRMED TRANSIT</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="color: var(--text-muted); margin-bottom: 14px; line-height: 1.85;">Largo Eagle &amp; Nord Ventura: Reuters confirmed · Exxon/Vitol; est. arrival Australia late April · Charter ~$6M/vessel ($20/bbl vs $2/bbl normal). Shenlong Suezmax: CNN confirmed transiting Hormuz 12 Mar bound for Mumbai — confirms Saudi crude moving despite crisis.</div>
+
+        <!-- TIER 3: GLOBAL DISRUPTIONS CONTEXT -->
+        <div style="letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--red-dim);">
+          ▶ TIER 3 — Global Disruptions Affecting Australia's Supply Pipeline
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Vessel / Fleet</th>
+              <th>Type</th>
+              <th>Event</th>
+              <th>Date</th>
+              <th>Impact on AUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="vessel-name">MV Karachi</span></td>
+              <td><span class="vessel-type type-aframax">Aframax · Crude</span></td>
+              <td>First non-Iranian vessel to transit Hormuz (AIS confirmed) — Abu Dhabi Das crude</td>
+              <td>15 Mar</td>
+              <td><span style="color: var(--amber);">Signal: possible negotiated safe passage emerging</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">MV Mayuree Naree</span></td>
+              <td><span class="vessel-type type-aframax">Bulk/Tanker</span></td>
+              <td>Thai vessel hit &amp; fire near Hormuz / Oman</td>
+              <td>11 Mar</td>
+              <td><span style="color: var(--red);">War risk insurance pullout accelerated</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">Iraqi Tankers ×2</span></td>
+              <td><span class="vessel-type type-product">Product</span></td>
+              <td>Attacked off Basra, Iraq</td>
+              <td>12 Mar</td>
+              <td><span style="color: var(--red);">Reduces Gulf product flow alternatives</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">Korean Tankers ×7</span></td>
+              <td><span class="vessel-type type-aframax">Aframax · Crude</span></td>
+              <td>Korean-operated vessels stranded in Persian Gulf — unable to load or transit</td>
+              <td>Ongoing</td>
+              <td><span style="color: var(--red);">Reduces Korea refinery runs → less AUS product</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">India-flagged ×37</span></td>
+              <td><span class="vessel-type type-vlcc">Mixed · Oil/LNG</span></td>
+              <td>In Strait or Gulf of Oman — some loaded, some waiting</td>
+              <td>Ongoing</td>
+              <td><span style="color: var(--amber);">Indian refinery disruption → less AUS diesel</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">Qatari LNG Fleet</span></td>
+              <td><span class="vessel-type type-lpg">LNG</span></td>
+              <td>Force majeure declared 4 Mar — Kuwait force majeure 7 Mar</td>
+              <td>4+ Mar</td>
+              <td><span style="color: var(--text-muted);">Not petrol/diesel — affects AUS gas/power costs</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">Saudi/UAE pipeline tankers</span></td>
+              <td><span class="vessel-type type-vlcc">VLCC · Crude</span></td>
+              <td>Diverting via Yanbu (E-W pipeline) and Fujairah — partial Hormuz bypass</td>
+              <td>From 10 Mar</td>
+              <td><span style="color: var(--green);">Partial offset — 4.2M vs 20M bbl/day shortfall</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 4: OUTLOOK -->
+  <div class="panel" style="margin-bottom: 16px;">
+    <div class="panel-header">
+      <div class="panel-title">Forward Outlook — Scenarios</div>
+      <div class="panel-tag">EIA STEO (10 Mar) · Goldman Sachs · CSIS · Al Jazeera · Wood Mackenzie · updated 18 Mar</div>
+    </div>
+    <div class="panel-body">
+      <div class="outlook-grid">
+        <div class="outlook-card">
+          <div class="outlook-horizon horizon-near">▲ NEAR-TERM (1–2 weeks)</div>
+          <div class="outlook-text">
+            Brent likely $95–110. EIA (10 Mar) forecasts Brent above $95/bbl for next two months. Selective Hormuz passage for non-Western ships now emerging — but not yet systematic. Fujairah attack means both main bypass routes now compromised. US Navy escorts not ready before end of March at earliest. Brisbane ULP likely to hold 230–245¢. Diesel rationing risk in regional QLD remains. ACCC meetings with fuel companies this week.
+          </div>
+        </div>
+        <div class="outlook-card">
+          <div class="outlook-horizon horizon-mid">◆ MID-TERM (1–2 months)</div>
+          <div class="outlook-text">
+            EIA forecasts Brent falling below $80/bbl by Q3 2026 if conflict resolves — but this assumes Hormuz gradually reopens. If closed beyond 4 weeks: Korean/Singapore refinery crude shortages start hitting Australian product tanker loadings late April. Largo Eagle / Nord Ventura (US Gulf) arrive late April as partial offset. Australia's reserve days likely to continue falling. Petrol analyst worst-case: 350¢/L. Formal rationing cannot be ruled out if reserves fall below 20 days.
+          </div>
+        </div>
+        <div class="outlook-card">
+          <div class="outlook-horizon horizon-far">◇ RESOLUTION SCENARIO</div>
+          <div class="outlook-text">
+            EIA forecasts Brent ~$70/bbl by end of 2026 and $64/bbl average in 2027 on resolution. Goldman Sachs: ~$14/bbl war premium — stripping that gives $85–88 baseline. Brisbane ULP would likely revert to 170–185¢ over 4–8 weeks post-reopening. Iran's selective passage policy and yuan-denominated transit proposal suggest Tehran is keeping diplomatic options open. Australia's structural refining vulnerability (2 refineries, 90% import dependent) unchanged regardless of outcome.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORWARD ANALYSIS: WHAT YOU CAN'T SEE IN VESSEL TRAFFIC -->
+  <div class="panel" style="margin-bottom: 20px;">
+    <div class="panel-header">
+      <div class="panel-title">Forward Analysis — What Vessel Traffic Won't Show You Yet</div>
+      <div class="panel-tag">Structural &amp; pipeline signals · ASPI · CSIS · IEA OMR March 2026 · Macquarie Business School · Al Jazeera · CNBC · Atlantic Council</div>
+    </div>
+    <div class="panel-body">
+
+      <div style="background: var(--surface2); border-left: 5px solid var(--amber); padding: 14px 18px; margin-bottom: 18px; line-height: 1.9;">
+        <strong style="color: var(--amber);">Why this section exists:</strong> Tanker arrivals at Brisbane tell you what has already happened. The signals below are upstream structural changes — in refineries, insurance markets, crude grades, and geography — that will determine what arrives in April and May. None of them are yet visible in vessel tracking data.
+      </div>
+
+      <!-- 6-CELL ANALYSIS GRID -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px;">
+
+        <div style="background: var(--surface2); border: 1px solid var(--border); padding: 18px;">
+          <div style="font-weight: 700; color: var(--red); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em;">① Crude Grade Mismatch — The Hidden Refinery Problem</div>
+          <div style="line-height: 1.9; color: var(--text-muted);">
+            Asian refineries — including the Korean and Singaporean plants that supply 45% of Australia's fuel — are physically configured for <strong style="color:var(--text);">medium and heavy sour crude</strong> from the Gulf. The IEA's March 2026 Oil Market Report notes Saudi Arabia is cutting production, and <strong style="color:var(--text);">the missing barrels are mostly Medium and Heavy grades</strong> that cannot easily be substituted.
+            Replacement barrels from the US or West Africa are typically <em>light and sweet</em>. Switching crude slates requires technical reconfiguration and blending that <strong style="color:var(--text);">reduces refinery efficiency</strong> and can create shortfalls in specific distillates — particularly <strong style="color:var(--red);">diesel and jet fuel</strong> — even when replacement volume is nominally available.
+            <br><br><em style="color:var(--text-dim);">Sources: <a href="https://www.iea.org/reports/oil-market-report-march-2026" target="_blank">IEA OMR March 2026</a> · <a href="https://statt.com/blog/strait-of-hormuz-closure/" target="_blank">Atlantic Council via statt.com</a></em>
+          </div>
+        </div>
+
+        <div style="background: var(--surface2); border: 1px solid var(--border); padding: 18px;">
+          <div style="font-weight: 700; color: var(--red); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em;">② Gulf Refineries Filling Up — Export-Oriented Plants Cutting Runs</div>
+          <div style="line-height: 1.9; color: var(--text-muted);">
+            With Hormuz closed and tankers unable to load, Gulf export-oriented refineries are cutting run rates because <strong style="color:var(--text);">storage tanks are filling up with nowhere to send product</strong>. The IEA estimates <strong style="color:var(--red);">more than 4 mb/d of refining capacity</strong> is at risk of curtailment. Gulf producers exported 3.3 mb/d of refined products and 1.5 mb/d of LPG in 2025 — that flow has largely ceased.
+            This reduction is not yet visible in Australian port arrivals because tankers en route before the closure are still arriving. <strong style="color:var(--text);">The pipeline drains in approximately 3–4 weeks from the date of closure</strong> — pointing to mid-to-late April as the moment when reduced loadings begin materialising as reduced arrivals at Brisbane.
+            <br><br><em style="color:var(--text-dim);">Source: <a href="https://www.iea.org/reports/oil-market-report-march-2026" target="_blank">IEA Oil Market Report, March 2026</a></em>
+          </div>
+        </div>
+
+        <div style="background: var(--surface2); border: 1px solid var(--border); padding: 18px;">
+          <div style="font-weight: 700; color: var(--red); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em;">③ Australia's Second Vulnerability Layer — Indonesian Straits</div>
+          <div style="line-height: 1.9; color: var(--text-muted);">
+            ASPI's Strategist (10 Mar) identifies a risk entirely invisible in current vessel data: <strong style="color:var(--text);">roughly 83% of Australia's maritime imports and 90% of exports pass through Indonesian straits</strong> (Malacca, Lombok, Sunda) before reaching Australian ports.
+            Hormuz is the <em>first</em> vulnerability layer. If Middle Eastern crude disruption also triggers maritime coercion or conflict in Southeast Asian sea lanes — through regional escalation or opportunistic action — <strong style="color:var(--red);">Australia would face physically constrained access to refined products with no domestic refining alternative</strong>. The ASPI analysis concludes the "centre of gravity in Australia's fuel security debate must shift north" — toward northern Australian geography and internal fuel logistics.
+            <br><br><em style="color:var(--text-dim);">Source: <a href="https://www.aspistrategist.org.au/hormuz-closure-brings-australias-layered-fuel-vulnerability-to-the-fore/" target="_blank">ASPI Strategist, 10 Mar 2026</a></em>
+          </div>
+        </div>
+
+        <div style="background: var(--surface2); border: 1px solid var(--border); padding: 18px;">
+          <div style="font-weight: 700; color: var(--amber); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em;">④ War Risk Insurance Pullout — Structural, Not Temporary</div>
+          <div style="line-height: 1.9; color: var(--text-muted);">
+            Protection and Indemnity (P&amp;I) war risk insurance for the Strait of Hormuz was withdrawn almost immediately after 28 Feb, <strong style="color:var(--text);">making the economic risk prohibitive for ship owners</strong> regardless of Iran's selective passage signals. The Wikipedia crisis log notes war risk cover was removed for 5 March transit, and Oman's alternative ports (Duqm, Salalah, Sohar) are now also in insurers' war risk zones following drone strikes on Duqm and Salalah in March.
+            This matters for Australia because <strong style="color:var(--text);">even if Iran selectively allows non-Western vessels through</strong>, insurance withdrawal keeps the majority of the commercial tanker fleet — including those carrying product to Australia — unable or unwilling to route via the Gulf. Insurance normalisation typically lags conflict resolution by weeks to months.
+            <br><br><em style="color:var(--text-dim);">Sources: <a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis" target="_blank">Wikipedia: 2026 Hormuz Crisis</a> · <a href="https://www.geopoliticalmonitor.com/dire-straits-the-hormuz-closure-and-global-commodity-markets/" target="_blank">Geopolitical Monitor</a></em>
+          </div>
+        </div>
+
+        <div style="background: var(--surface2); border: 1px solid var(--border); padding: 18px;">
+          <div style="font-weight: 700; color: var(--amber); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em;">⑤ Strategic Reserves Cannot Replace Physical Flow</div>
+          <div style="line-height: 1.9; color: var(--text-muted);">
+            The IEA's 400M barrel emergency release is the largest ever, but Al Jazeera's analysis (15 Mar) quantifies its limits precisely: at 105 mb/d global consumption, <strong style="color:var(--text);">400M barrels covers just 4 days of global demand</strong>, or about 20 days of normal Hormuz flow. CSIS economist Clayton Seigle told CNN: the US Energy Independence offset is "a very small potential offset compared to concerns for the physical supply of refined products."
+            Australia's own MSO release of 762ML covers approximately <strong style="color:var(--text);">3–4 days of national consumption</strong>. The release buys time and moderates panic, but cannot substitute for a functioning import pipeline. The key metric to watch is not whether reserves are being released, but whether the <em>rate of depletion</em> of national stocks is slowing or accelerating.
+            <br><br><em style="color:var(--text-dim);">Sources: <a href="https://www.aljazeera.com/economy/2026/3/15/strategic-oil-release-may-calm-markets-but-cannot-fix-hormuz-disruption" target="_blank">Al Jazeera, 15 Mar</a> · <a href="https://www.cnn.com/2026/03/12/politics/hormuz-trump-administration-underestimated-iran" target="_blank">CNN, 12 Mar</a></em>
+          </div>
+        </div>
+
+        <div style="background: var(--surface2); border: 1px solid var(--border); padding: 18px;">
+          <div style="font-weight: 700; color: var(--amber); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em;">⑥ Diesel &amp; Jet Fuel Most Vulnerable — And Australian Mining at Risk</div>
+          <div style="line-height: 1.9; color: var(--text-muted);">
+            The IEA's March OMR specifically flags <strong style="color:var(--red);">diesel and jet fuel as "particularly vulnerable"</strong> due to limited flexibility in non-Gulf regions to increase output. Singapore gasoil (diesel proxy) had already reached <strong style="color:var(--text);">$143.88/bbl by 13 March — up 57% from pre-crisis</strong>; jet fuel reached $199.66/bbl, +114%.
+            For Australia specifically, a downstream analysis (discoveryalert.com.au) notes Australia's mining sector consumes approximately <strong style="color:var(--text);">40% of national diesel supply</strong> — creating a direct policy dilemma: preserve diesel for food distribution and emergency services, or maintain export-dependent mining operations that underpin the national economy. Dr Lurion De Mello (Macquarie Business School) adds that Brisbane's Ampol Lytton refinery exports its high-sulphur output rather than supplying locally, a structural gap that emergency directives are only partially addressing.
+            <br><br><em style="color:var(--text-dim);">Sources: <a href="https://www.iea.org/reports/oil-market-report-march-2026" target="_blank">IEA OMR March 2026</a> · <a href="https://lighthouse.mq.edu.au/article/2026/march-2026/could-australia-run-out-of-petrol" target="_blank">Macquarie Business School, 13 Mar</a></em>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BONUS: UPSTREAM CASCADE NOT YET VISIBLE -->
+      <div style="background: var(--surface2); border-left: 5px solid var(--cyan); padding: 16px 18px; line-height: 1.9;">
+        <strong style="color: var(--cyan);">Bonus signal — Fertiliser cascade into food prices (not fuel, but related)</strong><br>
+        A signal most observers are missing: CSIS analysis confirms <strong style="color:var(--text);">nearly half of all seaborne urea exports and 44% of global sulphur production transit Hormuz</strong> — far exceeding its oil role as a chokepoint. Urea prices jumped 32% in the first week of the crisis (New Orleans hub: $516 → $683/tonne). <strong style="color:var(--text);">Australia's autumn planting window is now</strong>. If fertiliser supply is disrupted for the current planting cycle, downstream food price inflation feeds through in Q3–Q4 2026 <em>regardless</em> of when Hormuz reopens. This is a second-order impact on household cost-of-living that won't appear in any fuel price tracker.
+        <br><br>
+        <em style="color:var(--text-dim);">Sources: <a href="https://www.csis.org/analysis/chokepoint-how-war-iran-threatens-global-food-security" target="_blank">CSIS: Chokepoint — War with Iran and Global Food Security</a> · <a href="https://www.foodingredientsfirst.com/news/hormuz-fertilizer-crisis-food-ingredient-costs.html" target="_blank">Food Ingredients First, 16 Mar</a></em>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EDITION 002 INTELLIGENCE UPDATE -->
+  <div class="panel" id="updatePanel" style="display: block;">
+    <div class="panel-header">
+      <div class="panel-title">Edition 002 Intelligence Update</div>
+      <div class="panel-tag" id="updateTimestamp">Compiled 18 Mar 2026 · Sources: Commodity.com, CSIS, CNBC, ABC News, Al Jazeera, SBS, BP TGP, Petrolmate, EIA STEO, Wikipedia Hormuz Crisis</div>
+    </div>
+    <div class="panel-body" id="updateContent" style="line-height: 1.9; color: var(--text);">
+      <strong style="color: var(--amber);">SITUATION SUMMARY — 18 March 2026, Day 18</strong><br><br>
+
+      <strong>🛢️ Crude prices:</strong> Brent <strong>$100.22/bbl</strong> (–3.51% today, <a href="https://commodity.com/energy/crude-oil/" target="_blank" style="color:var(--cyan);">Commodity.com</a>) · WTI <strong>$95.11/bbl</strong> (–4.27%). Both benchmarks down on day amid diplomatic signals but still ~40–43% above pre-war levels. <a href="https://www.eia.gov/outlooks/steo/" target="_blank" style="color:var(--cyan);">EIA Short-Term Energy Outlook (10 Mar)</a> forecasts Brent above $95/bbl for two months then declining to ~$70 by year-end on assumed Hormuz reopening.<br><br>
+
+      <strong>🌊 Hormuz — critical development:</strong> Transit rate has collapsed to <strong>13 vessels/day average</strong> since 1 March vs 153/day pre-war (–91%), per <a href="https://www.csis.org/analysis/no-one-not-even-beijing-getting-through-strait-hormuz" target="_blank" style="color:var(--cyan);">CSIS/Starboard Maritime AIS data</a>. However, Iran is now allowing selective passage for non-enemy nations — Indian (2 LPG carriers), Turkish (1 vessel), Pakistani (Aframax <em>Karachi</em>) ships have transited. <strong>22 Indian ships</strong> await Iranian confirmation. Iran's new supreme leader Mojtaba Khamenei insists closure is"a tool to pressure the enemy." Iran considering yuan-denominated passage for limited tanker access — <a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis" target="_blank" style="color:var(--cyan);">Wikipedia: 2026 Hormuz Crisis</a>.<br><br>
+
+      <strong>⚠️ Major new development — Fujairah attacked:</strong> Iranian drones struck UAE's <strong>Shah gas field</strong> (world's largest ultra-sour gas development) and <strong>Fujairah Oil Industry Zone</strong> (14–16 Mar) — <a href="https://www.aljazeera.com/news/2026/3/16/iranian-drones-hit-fujairah-oil-zone-shah-gas-field" target="_blank" style="color:var(--cyan);">Al Jazeera</a> · <a href="https://www.cnbc.com/2026/03/11/strait-of-hormuz-closure-shipping-economy-oil.html" target="_blank" style="color:var(--cyan);">CNBC</a>. Fujairah is the terminus of the Abu Dhabi Crude Oil Pipeline — one of only two Hormuz bypass routes feeding Australia's supply chain. Operations suspended. Dubai airport briefly shut. Both main bypass routes (Yanbu/Red Sea + Fujairah) are now compromised. This is a material deterioration in Australia's medium-term supply outlook.<br><br>
+
+      <strong>⛽ Brisbane pump prices:</strong> ULP 91 retail average <strong>233.5¢/L</strong> (<a href="https://www.petrolmate.com.au/city/qld/brisbane" target="_blank" style="color:var(--cyan);">Petrolmate, 17 Mar 11pm</a>) — up 4.5¢ since Edition 001. BP Terminal Gate Price today (18 Mar): diesel <strong>261.9¢</strong>, ULP <strong>224.5¢</strong>, Premium 95 <strong>234.1¢</strong>, E10 <strong>226.3¢</strong> — <a href="https://www.bp.com/en_au/australia/home/products-and-services/fuels/terminal-gate-price.html" target="_blank" style="color:var(--cyan);">BP TGP Australia</a>. Retail-to-TGP gap ~9¢ — within normal range, no evidence of gouging above wholesale cost. ACCC has written to 7-Eleven, Ampol, BP, Chevron, Mobil, United, Viva Energy and EG seeking urgent pricing explanations — <a href="https://www.accc.gov.au/consumers/petrol-fuel" target="_blank" style="color:var(--cyan);">ACCC media release</a>.<br><br>
+
+      <strong>🏭 Australian reserves &amp; supply:</strong> Petrol <strong>29 days</strong>, diesel <strong>26 days</strong>, jet fuel <strong>29 days</strong> (<a href="https://www.sbs.com.au/news/article/australia-fuel-reserves-iran-war-2026" target="_blank" style="color:var(--cyan);">SBS News</a> · <a href="https://www.abc.net.au/news/2026-03-14/australia-fuel-reserves-panic-buying/104056832" target="_blank" style="color:var(--cyan);">ABC News</a>, ~14 Mar). Release of 762ML MSO reserves underway but supply chain complexity means regional towns still experiencing shortages. Fuel quality standards lowered (60 days) adding ~100ML/month. Tankers continue arriving at Australian import terminals at broadly normal volumes — current shortages remain distribution/panic-buying driven, not an import collapse. <em>Largo Eagle</em> and <em>Nord Ventura</em> (US Gulf Coast, ~600K bbl combined) loading this week — est. arrival late April — <a href="https://www.reuters.com/business/energy/exxon-vitol-charter-tankers-fuel-australia-us-gulf-2026-03-04/" target="_blank" style="color:var(--cyan);">Reuters</a>.<br><br>
+
+      <strong>📡 Inflow signal:</strong> Inflows HOLDING for now. Forward risk: Asian refinery crude shortages from Hormuz closure will reduce product tanker loadings to Australia from approximately late April. The Fujairah attack further reduces bypass-route crude available to Korean/Singapore refiners. Watch for any slowdown in MR/LR product tanker arrivals at Brisbane (<a href="https://www.vesselfinder.com/ports/AUBNE001" target="_blank" style="color:var(--cyan);">VesselFinder AUBNE — filter All Tankers</a>) as the leading indicator — a sustained drop over 2+ weeks would signal a genuine supply crunch 3–5 weeks ahead. Also monitor <a href="https://qships.tmr.qld.gov.au/webx/" target="_blank" style="color:var(--cyan);">QSHIPS Queensland</a> for Lytton-specific movements.
+
+      <hr class="sep" style="margin: 18px 0 14px;">
+      <div style="font-family:'Syne',sans-serif; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--amber); margin-bottom:12px;">§ Sources — Edition 002 · all links open in new tab</div>
+      <div class="source-list">
+        <div class="source-item">
+          <div class="src-label">Crude Oil Prices</div>
+          <a href="https://commodity.com/energy/crude-oil/" target="_blank">Commodity.com — Brent &amp; WTI</a>
+          <a href="https://www.eia.gov/outlooks/steo/" target="_blank">EIA Short-Term Energy Outlook</a>
+        </div>
+        <div class="source-item">
+          <div class="src-label">Brisbane Pump Prices</div>
+          <a href="https://www.petrolmate.com.au/city/qld/brisbane" target="_blank">Petrolmate — Brisbane retail</a>
+          <a href="https://www.bp.com/en_au/australia/home/products-and-services/fuels/terminal-gate-price.html" target="_blank">BP Terminal Gate Price (daily)</a>
+        </div>
+        <div class="source-item">
+          <div class="src-label">Fuel Reserves &amp; Policy</div>
+          <a href="https://www.sbs.com.au/news/topic/australia" target="_blank">SBS News</a>
+          <a href="https://www.abc.net.au/news" target="_blank">ABC News</a>
+          <a href="https://www.accc.gov.au/consumers/petrol-&-fuel" target="_blank">ACCC Petrol &amp; Fuel Monitor</a>
+          <a href="https://www.industry.gov.au/fuel-and-energy/fuel-security" target="_blank">DISR — Fuel Security</a>
+        </div>
+        <div class="source-item">
+          <div class="src-label">Hormuz &amp; Geopolitics</div>
+          <a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis" target="_blank">Wikipedia — 2026 Hormuz Crisis (live)</a>
+          <a href="https://www.csis.org/analysis/no-one-not-even-beijing-getting-through-strait-hormuz" target="_blank">CSIS — AIS tanker transit analysis</a>
+          <a href="https://www.csis.org/analysis/if-trump-strikes-iran-mapping-oil-disruption-scenarios" target="_blank">CSIS — Oil disruption scenarios</a>
+          <a href="https://www.aljazeera.com" target="_blank">Al Jazeera</a>
+          <a href="https://www.cnbc.com" target="_blank">CNBC</a>
+          <a href="https://www.cnn.com/2026/03/12/politics/hormuz-trump-administration-underestimated-iran" target="_blank">CNN — Pentagon underestimated Iran</a>
+        </div>
+        <div class="source-item">
+          <div class="src-label">Forward Analysis</div>
+          <a href="https://www.iea.org/reports/oil-market-report-march-2026" target="_blank">IEA Oil Market Report — March 2026</a>
+          <a href="https://www.aspistrategist.org.au/hormuz-closure-brings-australias-layered-fuel-vulnerability-to-the-fore/" target="_blank">ASPI Strategist — AUS layered vulnerability</a>
+          <a href="https://lighthouse.mq.edu.au/article/2026/march-2026/could-australia-run-out-of-petrol" target="_blank">Macquarie Business School — AUS fuel risk</a>
+          <a href="https://www.csis.org/analysis/chokepoint-how-war-iran-threatens-global-food-security" target="_blank">CSIS — Fertiliser/food security cascade</a>
+          <a href="https://www.geopoliticalmonitor.com/dire-straits-the-hormuz-closure-and-global-commodity-markets/" target="_blank">Geopolitical Monitor — commodity markets</a>
+        </div>
+        <div class="source-item">
+          <div class="src-label">Live Tanker Tracking</div>
+          <a href="https://www.vesselfinder.com/ports/AUBNE001" target="_blank">VesselFinder — Port of Brisbane</a>
+          <a href="https://qships.tmr.qld.gov.au/webx/" target="_blank">QSHIPS — Queensland ship movements</a>
+          <a href="https://www.marinetraffic.com/en/ais/home/centerx:153.17/centery:-27.36/zoom:12" target="_blank">MarineTraffic — Brisbane port</a>
+        </div>
+        <div class="source-item">
+          <div class="src-label">Industry &amp; Wholesale</div>
+          <a href="https://www.aip.com.au/pricing" target="_blank">AIP — Industry pricing data</a>
+          <a href="https://www.reuters.com/business/energy/" target="_blank">Reuters Energy</a>
+          <a href="https://kpler.com" target="_blank">Kpler — import volumes (commercial)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>FUEL SECURITY BRIEF · Edition 002 · 18 March 2026 · Brisbane, QLD</div>
+  <div>
+    <a href="https://commodity.com/energy/crude-oil/" target="_blank" style="color:var(--text-dim);">Commodity.com</a> ·
+    <a href="https://www.eia.gov/outlooks/steo/" target="_blank" style="color:var(--text-dim);">EIA STEO</a> ·
+    <a href="https://www.accc.gov.au/consumers/petrol-&-fuel" target="_blank" style="color:var(--text-dim);">ACCC</a> ·
+    <a href="https://www.aip.com.au/pricing" target="_blank" style="color:var(--text-dim);">AIP</a> ·
+    <a href="https://www.bp.com/en_au/australia/home/products-and-services/fuels/terminal-gate-price.html" target="_blank" style="color:var(--text-dim);">BP TGP</a> ·
+    <a href="https://www.petrolmate.com.au/city/qld/brisbane" target="_blank" style="color:var(--text-dim);">Petrolmate</a> ·
+    <a href="https://www.sbs.com.au/news/topic/australia" target="_blank" style="color:var(--text-dim);">SBS</a> ·
+    <a href="https://www.abc.net.au/news" target="_blank" style="color:var(--text-dim);">ABC</a> ·
+    <a href="https://www.aljazeera.com" target="_blank" style="color:var(--text-dim);">Al Jazeera</a> ·
+    <a href="https://www.csis.org/analysis/no-one-not-even-beijing-getting-through-strait-hormuz" target="_blank" style="color:var(--text-dim);">CSIS Hormuz Tracker</a> ·
+    <a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis" target="_blank" style="color:var(--text-dim);">Wikipedia: Hormuz Crisis</a> ·
+    <a href="https://www.vesselfinder.com/ports/AUBNE001" target="_blank" style="color:var(--text-dim);">VesselFinder BNE</a> ·
+    <a href="https://qships.tmr.qld.gov.au/webx/" target="_blank" style="color:var(--text-dim);">QSHIPS QLD</a>
+  </div>
+  <div>For personal / executive use only · Not financial advice</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+// Price History Chart
+const priceCtx = document.getElementById('priceChart').getContext('2d');
+new Chart(priceCtx, {
+  type: 'line',
+  data: {
+    labels: ['1 Dec', '15 Dec', '1 Jan', '15 Jan', '1 Feb', '16 Feb', '1 Mar', '9 Mar', '17 Mar'],
+    datasets: [{
+      label: 'Brisbane ULP 91 (¢/L)',
+      data: [158, 161, 163, 160, 162, 155, 179, 187, 229],
+      borderColor: '#e8a930',
+      backgroundColor: 'rgba(150,88,10,0.07)',
+      borderWidth: 2,
+      pointBackgroundColor: '#e8a930',
+      pointRadius: [3,3,3,3,3,4,4,4,5],
+      fill: true,
+      tension: 0.4
+    }]
+  },
+  options: {
+    responsive: false,
+    plugins: {
+      legend: { display: false },
+      annotation: {}
+    },
+    scales: {
+      x: {
+        ticks: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' } },
+        grid: { color: 'rgba(180,200,215,0.4)' }
+      },
+      y: {
+        ticks: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' }, callback: v => v + '¢' },
+        grid: { color: 'rgba(180,200,215,0.4)' },
+        min: 140
+      }
+    }
+  }
+});
+
+// Crude chart
+const crudeCtx = document.getElementById('crudeChart').getContext('2d');
+new Chart(crudeCtx, {
+  type: 'line',
+  data: {
+    labels: ['28 Feb', '2 Mar', '5 Mar', '8 Mar', '10 Mar', '11 Mar', '13 Mar', '15 Mar', '16 Mar'],
+    datasets: [
+      {
+        label: 'Brent',
+        data: [70, 80, 83, 101, 89, 120, 103, 103, 101.93],
+        borderColor: '#e8a930',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        pointBackgroundColor: '#e8a930',
+        pointRadius: [4,3,3,4,4,5,3,3,4],
+        tension: 0.3
+      },
+      {
+        label: 'WTI',
+        data: [66, 76, 79, 95, 77, 102, 93, 93, 94.62],
+        borderColor: '#2bc5c5',
+        backgroundColor: 'transparent',
+        borderWidth: 1.5,
+        pointBackgroundColor: '#2bc5c5',
+        pointRadius: [3,3,3,3,3,4,3,3,3],
+        tension: 0.3,
+        borderDash: [4,2]
+      }
+    ]
+  },
+  options: {
+    responsive: false,
+    plugins: {
+      legend: {
+        display: true,
+        labels: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' }, boxWidth: 12 }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' } },
+        grid: { color: 'rgba(180,200,215,0.4)' }
+      },
+      y: {
+        ticks: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' }, callback: v => '$'+v },
+        grid: { color: 'rgba(180,200,215,0.4)' },
+        min: 60
+      }
+    }
+  }
+});
+
+// Inflow volume chart — DIESEL
+const inflowCtx = document.getElementById('inflowChart').getContext('2d');
+const barColors = (vals, peak) => vals.map((v, i) => {
+  if (i === vals.length - 1) return 'rgba(232,169,48,0.55)';
+  if (i === vals.length - 2) return 'rgba(47,191,110,0.4)';
+  return 'rgba(10,110,110,0.18)';
+});
+const barBorders = (vals) => vals.map((v, i) => {
+  if (i === vals.length - 1) return 'rgba(232,169,48,0.9)';
+  if (i === vals.length - 2) return 'rgba(47,191,110,0.7)';
+  return 'rgba(10,110,110,0.5)';
+});
+const dieselData = [3980, 4210, 4650, 4920, 5986, 5776];
+const petrolData = [2890, 2970, 3140, 3310, 3500, 3210];
+const lngData   = [380,  420,  395,  410,  430,  0];
+const labels = ['Q1 2021','Q1 2022','Q1 2023','Q1 2024','Q1 2025','Q1 2026\n(proj.)'];
+
+function makeBarChart(ctx, data, label, yMin) {
+  return new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label,
+        data,
+        backgroundColor: barColors(data),
+        borderColor: barBorders(data),
+        borderWidth: 1.5
+      }]
+    },
+    options: {
+      responsive: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: c => ' ' + c.parsed.y.toLocaleString() + ' kt' } }
+      },
+      scales: {
+        x: { ticks: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' } }, grid: { color: 'rgba(180,200,215,0.4)' } },
+        y: { ticks: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' }, callback: v => v.toLocaleString()+'kt' }, grid: { color: 'rgba(180,200,215,0.4)' }, min: yMin }
+      },
+      animation: { duration: 800 }
+    }
+  });
+}
+
+// ─── Chart instance storage ───────────────────────────────────────────────────
+// Diesel chart
+window.dieselChart = new Chart(inflowCtx, {
+  type: 'bar',
+  data: { labels, datasets: [{ label: 'Diesel (kt)', data: dieselData, backgroundColor: barColors(dieselData), borderColor: barBorders(dieselData), borderWidth: 1.5 }] },
+  options: { responsive: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ' ' + c.parsed.y.toLocaleString() + ' kt diesel' } } }, scales: { x: { ticks: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' } }, grid: { color: 'rgba(180,200,215,0.4)' } }, y: { ticks: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' }, callback: v => v.toLocaleString()+'kt' }, grid: { color: 'rgba(180,200,215,0.4)' }, min: 3500 } }, animation: { duration: 800 } }
+});
+
+// Petrol chart
+window.petrolChart = makeBarChart(
+  document.getElementById('petrolInflowChart').getContext('2d'),
+  petrolData, 'Petrol (kt)', 2700
+);
+
+// LNG chart
+const lngCtx = document.getElementById('lngInflowChart').getContext('2d');
+window.lngChart = new Chart(lngCtx, {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [{
+      label: 'LNG imports (kt)',
+      data: lngData,
+      backgroundColor: lngData.map((v,i) => i === lngData.length-1 ? 'rgba(232,64,64,0.5)' : i === lngData.length-2 ? 'rgba(47,191,110,0.35)' : 'rgba(10,110,110,0.18)'),
+      borderColor:      lngData.map((v,i) => i === lngData.length-1 ? 'rgba(232,64,64,1)'   : i === lngData.length-2 ? 'rgba(47,191,110,0.7)'  : 'rgba(10,110,110,0.5)'),
+      borderWidth: 1.5
+    }]
+  },
+  options: {
+    responsive: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.parsed.y === 0 ? ' HALTED (Force Majeure)' : ' ' + c.parsed.y + ' kt LNG' } } },
+    scales: {
+      x: { ticks: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' } }, grid: { color: 'rgba(180,200,215,0.4)' } },
+      y: { ticks: { color: '#4a6272', font: { size: 13, family: 'IBM Plex Mono' }, callback: v => v+'kt' }, grid: { color: 'rgba(180,200,215,0.4)' }, min: 0 }
+    },
+    animation: { duration: 900 }
+  }
+});
+
+// ─── Edition counter ──────────────────────────────────────────────────────────
+let editionCount = 1;
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+function nowDisplay() {
+  return new Date().toLocaleString('en-AU', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit', timeZoneName:'short' });
+}
+
+// ─── Colour helper for metric values ─────────────────────────────────────────
+function setMetricColour(el, severity) {
+  el.className = 'metric-value';
+  if (severity === 'crisis') el.classList.add('crisis-val');
+  else if (severity === 'warn') el.classList.add('warn-val');
+  else if (severity === 'ok') el.classList.add('ok-val');
+  else el.classList.add('cyan-val');
+}
+
+// ─── Update chart last bar ────────────────────────────────────────────────────
+function updateChartLastBar(chart, newValue, colorOverride) {
+  const ds = chart.data.datasets[0];
+  const i  = ds.data.length - 1;
+  ds.data[i] = newValue;
+  if (colorOverride) {
+    const bg  = [...ds.backgroundColor];
+    const bdr = [...ds.borderColor];
+    bg[i]  = colorOverride.bg;
+    bdr[i] = colorOverride.border;
+    ds.backgroundColor = bg;
+    ds.borderColor = bdr;
+  }
+  chart.update('active');
+}
+
+// ─── STATUS → CSS colour name mapping ────────────────────────────────────────
+const statusStyles = {
+  HOLDING:    { cssVar: 'var(--green)',  severity: 'ok',   barBg: 'rgba(47,191,110,0.45)',  barBorder: 'rgba(47,191,110,0.9)'  },
+  TIGHTENING: { cssVar: 'var(--amber)',  severity: 'warn', barBg: 'rgba(232,169,48,0.45)', barBorder: 'rgba(232,169,48,0.9)' },
+  DISRUPTED:  { cssVar: 'var(--red)',    severity: 'crisis',barBg:'rgba(232,64,64,0.45)',  barBorder: 'rgba(232,64,64,0.9)'  },
+  FALLING:    { cssVar: 'var(--red)',    severity: 'crisis',barBg:'rgba(232,64,64,0.45)',  barBorder: 'rgba(232,64,64,0.9)'  },
+  IMPROVING:  { cssVar: 'var(--green)',  severity: 'ok',   barBg: 'rgba(47,191,110,0.45)',  barBorder: 'rgba(47,191,110,0.9)'  },
+};
+
+// ─── Apply parsed JSON to the DOM ────────────────────────────────────────────
+function updateDOM(d, nowStr, audUsd) {
+  const $ = id => document.getElementById(id);
+
+  // — AUD/USD (live) —
+  if (audUsd) {
+    $('m-fx-val').textContent = audUsd.toFixed(4);
+    $('m-fx-sub').textContent = `Rate · live as of ${nowStr}`;
+    $('m-fx-src').textContent = '🌐 Live';
+    $('m-fx-src').style.color = 'var(--green)';
+    $('m-fx-delta').textContent = audUsd < 0.60 ? '⚠ Weak AUD — raises import costs' : audUsd > 0.68 ? '↑ Strong AUD — offsets crude rise' : 'Affects AUS import cost';
+    $('m-fx-delta').style.color = audUsd < 0.60 ? 'var(--red)' : audUsd > 0.68 ? 'var(--green)' : 'var(--text-muted)';
+  }
+
+  if (!d) return; // live-only update if Claude call failed
+
+  // — Crude prices —
+  if (d.prices) {
+    const p = d.prices;
+    if (p.brent) {
+      $('m-brent-val').textContent = '$' + p.brent.value.toFixed(2);
+      $('m-brent-sub').textContent = `USD / barrel · ${nowStr}`;
+      $('m-brent-delta').textContent = `${p.brent.delta1d}  ·  ${p.brent.deltaPreWar} vs pre-war`;
+      setMetricColour($('m-brent-val'), p.brent.value > 100 ? 'crisis' : p.brent.value > 85 ? 'warn' : 'ok');
+    }
+    if (p.wti) {
+      $('m-wti-val').textContent = '$' + p.wti.value.toFixed(2);
+      $('m-wti-sub').textContent = `USD / barrel · ${nowStr}`;
+      $('m-wti-delta').textContent = `${p.wti.delta1d}  ·  ${p.wti.deltaPreWar} vs pre-war`;
+      setMetricColour($('m-wti-val'), p.wti.value > 95 ? 'crisis' : p.wti.value > 80 ? 'warn' : 'ok');
+    }
+    if (p.ulp91Brisbane) {
+      $('m-ulp-val').textContent = p.ulp91Brisbane.value.toFixed(1) + '¢';
+      $('m-ulp-sub').textContent = `cents / litre avg · ${nowStr}`;
+      $('m-ulp-delta').textContent = p.ulp91Brisbane.delta;
+      setMetricColour($('m-ulp-val'), p.ulp91Brisbane.value > 220 ? 'crisis' : p.ulp91Brisbane.value > 190 ? 'warn' : 'ok');
+    }
+  }
+
+  // — Reserve days —
+  if (d.reserves) {
+    const r = d.reserves;
+    $('m-res-val').textContent = r.petrol.days;
+    $('m-res-sub').textContent = 'days petrol cover · DISR est.';
+    $('m-res-delta').textContent = r.petrol.trend === 'falling' ? `▼ ${r.petrol.trend} — diesel ${r.diesel.days}d · jet ${r.jet.days}d` : `→ ${r.petrol.trend} — diesel ${r.diesel.days}d · jet ${r.jet.days}d`;
+    setMetricColour($('m-res-val'), r.petrol.days < 25 ? 'crisis' : r.petrol.days < 40 ? 'warn' : 'ok');
+  }
+
+  // — Inflow figures —
+  ['diesel','petrol','lng'].forEach(fuel => {
+    if (!d.inflows || !d.inflows[fuel]) return;
+    const f  = d.inflows[fuel];
+    const st = statusStyles[f.status] || statusStyles['HOLDING'];
+
+    $(`fig-${fuel}-kt`).textContent = f.kt_q1_2026.toLocaleString() + ' kt';
+    $(`fig-${fuel}-kt`).style.color = st.cssVar;
+
+    const dir = parseFloat(f.yoyDelta) < 0 ? '▼' : '▲';
+    const deltaColour = parseFloat(f.yoyDelta) < -5 ? 'var(--red)' : parseFloat(f.yoyDelta) < 0 ? 'var(--amber)' : 'var(--green)';
+    $(`fig-${fuel}-delta`).innerHTML = `Q1 2026 proj. &nbsp;·&nbsp; <span style="color:${deltaColour};">${dir} ${f.yoyDelta} vs Q1 2025</span> &nbsp;·&nbsp; ${f.status}`;
+
+    $(`fig-${fuel}-narrative`).innerHTML = f.narrative +
+      `<br><span style="color:var(--text-dim); ">🤖 Claude synthesis · ${nowStr}</span>`;
+
+    // Update last chart bar
+    const chartMap = { diesel: window.dieselChart, petrol: window.petrolChart, lng: window.lngChart };
+    if (chartMap[fuel]) {
+      updateChartLastBar(chartMap[fuel], f.kt_q1_2026, { bg: st.barBg, border: st.barBorder });
+    }
+  });
+
+  // — Source note —
+  $('fig-last-updated').textContent = ` · 🤖 Claude synthesis refresh: ${nowStr}`;
+
+  // — Edition stamp —
+  editionCount++;
+  const edBadge = document.querySelector('.edition-badge');
+  if (edBadge) edBadge.textContent = `EDITION ${String(editionCount).padStart(3,'0')}`;
+  const timeEl = document.querySelector('.datestamp .time');
+  if (timeEl) {
+    const d2 = new Date();
+    timeEl.textContent = d2.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'}).toUpperCase();
+  }
+  $('lastUpdated').textContent = `Edition ${String(editionCount).padStart(3,'0')} · Updated ${nowStr} · 🌐 AUD/USD live · 🤖 All other data: Claude API synthesis`;
+}
+
+// ─── Phase 1: Fetch live AUD/USD ──────────────────────────────────────────────
+async function fetchAudUsd() {
+  try {
+    const r = await fetch('https://api.frankfurter.app/latest?from=USD&to=AUD', { signal: AbortSignal.timeout(5000) });
+    const j = await r.json();
+    // frankfurter returns USD→AUD; invert for AUD/USD
+    return j.rates && j.rates.AUD ? parseFloat((1 / j.rates.AUD).toFixed(4)) : null;
+  } catch { return null; }
+}
+
+// ─── Phase 2: Claude structured JSON call ────────────────────────────────────
+async function fetchClaudeData(todayFull, audUsd) {
+  const fxContext = audUsd ? `The live AUD/USD rate right now is ${audUsd}.` : 'AUD/USD could not be fetched live.';
+  const schema = `{"prices": {"brent":          {"value": number,"delta1d":"±X.X%","deltaPreWar":"±XX%" },"wti":            {"value": number,"delta1d":"±X.X%","deltaPreWar":"±XX%" },"ulp91Brisbane":  {"value": number (cents/L),"delta":"short trend string" }
+  },"reserves": {"petrol": {"days": number,"trend":"falling|stable|rising" },"diesel": {"days": number,"trend":"falling|stable|rising" },"jet":    {"days": number,"trend":"falling|stable|rising" }
+  },"inflows": {"diesel": {"kt_q1_2026": number,"status":"HOLDING|TIGHTENING|DISRUPTED|FALLING|IMPROVING","yoyDelta":"±X.X%","narrative":"2–3 sentence HTML string with <strong> tags" },"petrol": {"kt_q1_2026": number,"status":"HOLDING|TIGHTENING|DISRUPTED|FALLING|IMPROVING","yoyDelta":"±X.X%","narrative":"2–3 sentence HTML string with <strong> tags" },"lng":    {"kt_q1_2026": number,"status":"HOLDING|TIGHTENING|DISRUPTED|FALLING|IMPROVING","yoyDelta":"±X.X%","narrative":"2–3 sentence HTML string with <strong> tags" }
+  },"narrative":"5–7 bullet HTML string — one <br> between bullets, <strong> for key figures. Covers: crude price moves, Hormuz/shipping, tanker inflows (crude vs product), Brisbane port arrivals, AUS reserve status, pump prices."
+}`;
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1500,
+      system: `You are an energy security analyst providing structured data updates for a Brisbane executive's daily fuel security briefing during the 2026 Iran war / Strait of Hormuz crisis. ${fxContext}
+
+Return ONLY valid JSON — no markdown fences, no preamble, no commentary. Match this exact schema:
+${schema}
+
+Rules:
+- Inflow kt figures: update the Q1 2026 projection based on the most recent shipping intelligence you have. If the situation has deteriorated, lower the kt figure; if emergency shipments have arrived, adjust upward.
+- Status values must be exactly one of: HOLDING, TIGHTENING, DISRUPTED, FALLING, IMPROVING
+- yoyDelta: compare to Q1 2025 baseline (diesel 5986kt, petrol 3500kt, LNG 430kt)
+- narrative fields: 2–3 sentences, HTML only, use <strong> for numbers/vessel names. End with vessel type note in <span style="color:#3a5860;">
+- narrative (top-level): 5–7 bullets covering crude prices, Hormuz, tanker inflows distinguishing crude (Aframax/VLCC) from product (MR/LR), Brisbane port arrivals, reserves, pump prices. Each bullet is one <br>-separated line. Flag declining inflows as a leading indicator.`,
+      messages: [{ role: 'user', content: `Today is ${todayFull}. Provide the updated JSON data for the fuel security briefing.` }]
+    })
+  });
+
+  const data = await response.json();
+  const raw  = data.content?.map(b => b.text||'').join('') || '';
+  // Strip any accidental markdown fences
+  const clean = raw.replace(/```json|```/g,'').trim();
+  return JSON.parse(clean);
+}
+
+// ─── Main refresh orchestrator ────────────────────────────────────────────────
+async function refreshReport() {
+  const btn     = document.getElementById('refreshBtn');
+  const saveBtn = document.getElementById('saveBtn');
+  const overlay = document.getElementById('loadingOverlay');
+  const loadingText = overlay.querySelector('.loading-text');
+
+  btn.disabled = true;
+  saveBtn.style.display = 'none';
+  overlay.classList.add('active');
+
+  const todayFull = new Date().toLocaleDateString('en-AU', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+  const nowStr    = nowDisplay();
+  let audUsd = null;
+  let claudeData = null;
+
+  // Phase 1 — live FX rate
+  loadingText.textContent = 'Fetching live AUD/USD rate…';
+  audUsd = await fetchAudUsd();
+  if (audUsd) updateDOM(null, nowStr, audUsd); // partial update with live FX immediately
+
+  // Phase 2 — Claude structured JSON
+  loadingText.textContent = 'Synthesising fuel intelligence…';
+  try {
+    claudeData = await fetchClaudeData(todayFull, audUsd);
+  } catch (e) {
+    console.warn('Claude JSON parse failed:', e);
+    claudeData = null;
+  }
+
+  // Phase 3 — apply everything to DOM
+  loadingText.textContent = 'Updating report…';
+  try {
+    updateDOM(claudeData, nowStr, audUsd);
+
+    // Intelligence narrative panel
+    const updatePanel = document.getElementById('updatePanel');
+    updatePanel.style.display = 'block';
+    document.getElementById('updateTimestamp').textContent = `Updated: ${nowStr} · 🌐 AUD/USD live · 🤖 All other data: Claude API synthesis`;
+    document.getElementById('updateContent').innerHTML = claudeData?.narrative ||
+      '<span style="color:var(--amber);">Narrative unavailable — metrics updated where possible.</span>';
+    updatePanel.scrollIntoView({ behavior:'smooth', block:'start' });
+  } catch(e) {
+    document.getElementById('updatePanel').style.display = 'block';
+    document.getElementById('updateContent').innerHTML =
+      `<span style="color:var(--red);">Update failed: ${e.message}<br>Manual sources: ACCC · AIP.com.au · Petrolmate · VesselFinder</span>`;
+  }
+
+  saveBtn.style.display = 'inline-flex';
+  btn.disabled = false;
+  overlay.classList.remove('active');
+}
+
+// ─── Save edition ─────────────────────────────────────────────────────────────
+function saveEdition() {
+  const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  const edition  = String(editionCount).padStart(3,'0');
+  const filename = `fuel_brief_${todayISO()}_ed${edition}.html`;
+  const blob = new Blob([htmlContent], { type:'text/html;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  const saveBtn = document.getElementById('saveBtn');
+  const orig    = saveBtn.innerHTML;
+  saveBtn.innerHTML = `✓ &nbsp;Saved as ${filename}`;
+  setTimeout(() => { saveBtn.innerHTML = orig; }, 3500);
+}
+
+// ─── Fetch live AUD/USD on page load (no Claude call) ────────────────────────
+window.addEventListener('load', async () => {
+  const audUsd = await fetchAudUsd();
+  if (audUsd) updateDOM(null, nowDisplay(), audUsd);
+});
+</script>
+</body>
+</html>
