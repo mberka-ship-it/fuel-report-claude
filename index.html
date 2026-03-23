@@ -706,11 +706,11 @@
     <div class="subtitle">Iran War Edition · Southeast Queensland & National</div>
   </div>
   <div class="header-right">
-    <div class="edition-badge">EDITION 003</div>
+    <div class="edition-badge">EDITION 005</div>
     <div class="datestamp">
-      <span class="time">19 MAR 2026</span>
-      Day 19 of US-Israel War on Iran<br>
-      Day 19 of Strait of Hormuz Crisis<br>
+      <span class="time">23 MAR 2026</span>
+      Day 25 of US-Israel War on Iran<br>
+      Day 25 of Strait of Hormuz Crisis<br>
       Brisbane, QLD · AEST
     </div>
   </div>
@@ -719,7 +719,7 @@
 <!-- CRISIS BANNER -->
 <div class="crisis-banner">
   <div class="crisis-tag">⚠ NATIONAL CRISIS</div>
-  <div class="crisis-text">MAJOR ESCALATION — Qatar Ras Laffan LNG terminal hit · Yanbu bypass attacked · Kuwait refinery struck · US drops bunker busters on Hormuz missile sites ▪ Brent $108–112/bbl ▪ Hormuz 8 transits/day (up from 4) ▪ Brisbane ULP retail avg 238.8¢/L · TGP 227.61¢ ▪ AUS reserves: petrol 27 days / diesel 24 days est.</div>
+  <div class="crisis-text">⚠ ULTIMATUM DEADLINE — Trump 48hr ultimatum expires ~9:44am AEST Tue 24 Mar · Iran says Hormuz will be "completely closed" if power plants struck ▪ Brent $113.44 intraday Mon · WTI briefly above $100/bbl ▪ UKMTO raises threat level to CRITICAL ▪ 22 nations joint Hormuz statement ▪ 6 April AUS oil shipments turned back ▪ QLD ULP avg 244.9¢ (Petrolmate 22 Mar) · Brisbane diesel retail ~295¢</div>
 </div>
 
 <div class="main">
@@ -732,7 +732,7 @@
     <button class="refresh-btn" onclick="saveEdition()" id="saveBtn" style="display:none; border-color: var(--green); color: var(--green);">
       ↓ &nbsp;Save This Edition
     </button>
-    <div style="color: var(--text-dim); flex: 1;" id="lastUpdated">Edition 003 · Compiled 19 Mar 2026, AEST · Sources: Oilprice.com, BP TGP (19 Mar), FuelRadar, ACCC, CBS News, CNN, Al Jazeera, Iran Intl, CNBC, Wikipedia Hormuz Crisis</div>
+    <div style="color: var(--text-dim); flex: 1;" id="lastUpdated">Edition 004 · Compiled 20 Mar 2026, AEST · Sources: CNBC, CNN, CBS News, Yahoo Finance, BP TGP PDF, Britannica, Wikipedia, Al Jazeera, Goldman Sachs, IEA, Fortune.com</div>
   </div>
 
   <div class="note-box">
@@ -743,15 +743,15 @@
   <div class="metrics-grid">
     <div class="metric">
       <div class="metric-label">Brent Crude <span id="m-brent-src" style="color:var(--text-dim);"><a href="https://commodity.com/energy/crude-oil/" target="_blank" style="color:var(--cyan);">🌐 Live</a></span></div>
-      <div class="metric-value crisis-val" id="m-brent-val">$112.21</div>
+      <div class="metric-value crisis-val" id="m-brent-val">$113.44</div>
       <div class="metric-sub" id="m-brent-sub">USD / barrel · 19 Mar (<a href="https://oilprice.com/futures/brent/" target="_blank">Oilprice.com</a>)</div>
-      <div class="metric-delta up" id="m-brent-delta">▲ +11.96% today · ▲ +60% vs pre-war (~$70)</div>
+      <div class="metric-delta up" id="m-brent-delta">▲ +3.26% Fri · ▲ +62% vs pre-war · Ultimatum deadline today</div>
     </div>
     <div class="metric">
       <div class="metric-label">WTI Crude <span id="m-wti-src" style="color:var(--text-dim);">🌐 Live</span></div>
-      <div class="metric-value crisis-val" id="m-wti-val">$98.65</div>
-      <div class="metric-sub" id="m-wti-sub">USD / barrel · 19 Mar (Vietnam.vn/Reuters)</div>
-      <div class="metric-delta up" id="m-wti-delta">▲ +3.7% today · ▲ +41% vs pre-war</div>
+      <div class="metric-value crisis-val" id="m-wti-val">$100.08</div>
+      <div class="metric-sub" id="m-wti-sub">USD / bbl · Mon 23 Mar (briefly above $100)</div>
+      <div class="metric-delta up" id="m-wti-delta">▲ +1.8% Mon open · First time above $100 · ▲ +43% vs pre-war</div>
     </div>
     <div class="metric">
       <div class="metric-label">AUD/USD <span id="m-fx-src" style="color:var(--green);">🌐 Live</span></div>
@@ -761,15 +761,15 @@
     </div>
     <div class="metric">
       <div class="metric-label">Brisbane ULP 91 <span id="m-ulp-src" style="color:var(--text-dim);"><a href="https://www.petrolmate.com.au/city/qld/brisbane" target="_blank" style="color:var(--cyan);">🌐 Petrolmate</a></span></div>
-      <div class="metric-value warn-val" id="m-ulp-val">238.8¢</div>
-      <div class="metric-sub" id="m-ulp-sub">cents / litre avg · 19 Mar (<a href="https://fuelradar.com.au/map/location/au/qld/4000/brisbane" target="_blank">FuelRadar</a>)</div>
-      <div class="metric-delta up" id="m-ulp-delta">▲ +5.3¢ since Ed.002 · <a href="https://www.bp.com/en_au/australia/home/products-and-services/fuels/terminal-gate-price.html" target="_blank" style="color:var(--cyan);">BP TGP</a> today: 227.61¢</div>
+      <div class="metric-value crisis-val" id="m-ulp-val">244.9¢</div>
+      <div class="metric-sub" id="m-ulp-sub">QLD avg · <a href="https://petrolmate.com.au/price-trends" target="_blank">Petrolmate</a> 22 Mar · TGP 232.6¢ (20 Mar)</div>
+      <div class="metric-delta up" id="m-ulp-delta">▲ +16.4¢ (+7.1%) past week · diesel retail ~295¢ · record territory</div>
     </div>
     <div class="metric">
       <div class="metric-label">AUS Fuel Reserves <span id="m-res-src" style="color:var(--text-dim);"><a href="https://www.sbs.com.au/news/topic/australia" target="_blank" style="color:var(--cyan);">SBS</a>/<a href="https://www.abc.net.au/news" target="_blank" style="color:var(--cyan);">ABC</a></span></div>
-      <div class="metric-value crisis-val" id="m-res-val">~27</div>
-      <div class="metric-sub" id="m-res-sub">days petrol est. · ~24d diesel · ~27d jet</div>
-      <div class="metric-delta up" id="m-res-delta">▼ Falling fast · ACCC emergency meetings</div>
+      <div class="metric-value crisis-val" id="m-res-val">38 / 30</div>
+      <div class="metric-sub" id="m-res-sub">days petrol / diesel (incl. MSO drawdown) · Bowen 21 Mar</div>
+      <div class="metric-delta up" id="m-res-delta">▼ 6 April tanker shipments turned back · DISR update due today</div>
     </div>
   </div>
 
@@ -787,24 +787,24 @@
         <div class="reserve-item">
           <div class="reserve-label">
             <span class="reserve-name">PETROL (ULP) — National</span>
-            <span class="reserve-days crisis-val">29 days</span>
+            <span class="reserve-days crisis-val">38 days*</span>
           </div>
           <div class="reserve-bar">
             <div class="reserve-fill bar-critical" style="width: 32.2%"></div>
             <div class="reserve-threshold" style="left: 100%; display: none;"></div>
           </div>
-          <div class="reserve-note">IEA requirement: 90 days &nbsp;·&nbsp; Currently 32% of target &nbsp;·&nbsp; 762ML reserve release authorised</div>
+          <div class="reserve-note">IEA requirement: 90 days · Bowen (21 Mar): 38 days incl. MSO drawdown · 6 Apr shipments turned back</div>
         </div>
 
         <div class="reserve-item">
           <div class="reserve-label">
             <span class="reserve-name">DIESEL — National</span>
-            <span class="reserve-days crisis-val">26 days</span>
+            <span class="reserve-days crisis-val">30 days*</span>
           </div>
           <div class="reserve-bar">
             <div class="reserve-fill bar-critical" style="width: 28.9%"></div>
           </div>
-          <div class="reserve-note">Critical for freight, agriculture, emergency services &nbsp;·&nbsp; NSW Farmers demand priority access</div>
+          <div class="reserve-note">Bowen (21 Mar): 30 days diesel/jet incl. MSO drawdown · NSW: 107 stations without diesel (mid-Mar)</div>
         </div>
 
         <div class="reserve-item">
@@ -823,7 +823,7 @@
         <div style="margin-top: 10px;">
           <div class="sitrep-item" style="padding: 6px 0;">
             <div class="sitrep-date">LYTTON</div>
-            <div class="sitrep-text"><strong>Ampol Lytton Refinery, Brisbane</strong> — 6.5BL/yr capacity, 550 staff. Currently redirecting <em>high-sulphur</em> output (normally exported) to regional QLD/NSW towns under emergency Bowen directive. Ultra-low sulphur upgrade in progress.</div>
+            <div class="sitrep-text"><strong>Ampol Lytton Refinery, Brisbane</strong> — 6.5BL/yr capacity, 550 staff. <strong style="color:var(--green);">NEW 20 Mar (ASX): Scheduled June T&amp;I maintenance deferred to August 2026</strong>, adding ~300 million litres of petrol, diesel and jet fuel domestically. FSSP support collar raised from 6.4 to 10.0 Acpl. Temporary fuel standard relaxation adds 80–100ML/month extra. Ampol says it had "strong inventory and confirmed orders at the commencement of the conflict." Sources: <a href="https://www.sharecafe.com.au/2026/03/20/ampol-welcomes-fssp-amendments-and-defers-refinery-maintenance/" target="_blank">Sharecafe (ASX announcement, 20 Mar)</a> · <a href="https://www.fool.com.au/2026/03/20/ampol-welcomes-stronger-refinery-support-and-domestic-supply-boost/" target="_blank">Motley Fool AU</a></div>
           </div>
           <div class="sitrep-item" style="padding: 6px 0;">
             <div class="sitrep-date">GEELONG</div>
@@ -835,10 +835,18 @@
         <div class="section-label">Government Emergency Actions</div>
         <div style="color: var(--text); margin-top: 10px; line-height: 1.9;">
           ✓ &nbsp;762 million litres petrol &amp; diesel released from MSO reserves<br>
-          ✓ &nbsp;Fuel quality standards lowered 60 days (adds ~100ML/month)<br>
+          ✓ &nbsp;Fuel quality standards lowered 60 days (adds 80–100ML/month at Lytton)<br>
           ✓ &nbsp;Lytton high-sulphur fuel redirected domestically<br>
-          ✓ &nbsp;IEA: 400M barrel global emergency release (AUS portion TBC)<br>
-          — &nbsp;Navy escort for tankers: US"not ready" — possible by end of March<br>
+          ✓ &nbsp;IEA: 400M barrel global emergency release<br>
+          ✓ &nbsp;<strong>Ampol Lytton T&amp;I deferred Jun → Aug: +300ML domestic supply (20 Mar)</strong><br>
+          ✓ &nbsp;FSSP collar raised 6.4 → 10.0 Acpl — boosts Lytton viability<br>
+          ✓ &nbsp;Russia 30-day sanctions waiver: 30 tankers/19M bbl cleared to deliver<br>
+          — &nbsp;Navy escort for tankers: US/UK military planners working on plan<br>
+          — &nbsp;Australia has <strong>zero</strong> Australian-flagged petroleum tankers (all 5 sold 2014–16)<br>
+          ✓ &nbsp;US lifted sanctions on <strong>140M barrels Iranian oil</strong> — temporary, for allies (India, Japan)<br>
+          ✓ &nbsp;Trump asked Congress for <strong>$200B</strong> additional war funds<br>
+          ⚠ &nbsp;<strong>6 April oil shipments to Australia turned back or deferred (Bowen, 21 Mar)</strong><br>
+          ⚠ &nbsp;UKMTO raised shipping threat to <strong>"CRITICAL"</strong> — Arabian Gulf, Hormuz, Gulf of Oman<br>
           — &nbsp;90-day IEA reserve requirement: Australia non-compliant since 2012
         </div>
       </div>
@@ -848,7 +856,7 @@
     <div class="panel">
       <div class="panel-header">
         <div class="panel-title">Situation Report — Iran War / Hormuz</div>
-        <div class="panel-tag">Day 17 · 17 Mar 2026</div>
+        <div class="panel-tag">Day 25 · 23 Mar 2026 · Ultimatum deadline ~9:44am AEST Tue 24 Mar</div>
       </div>
       <div class="panel-body">
 
@@ -915,7 +923,23 @@
         </div>
         <div class="sitrep-item">
           <div class="sitrep-date">19 MAR</div>
-          <div class="sitrep-text"><strong>US drops 5,000-lb bunker buster bombs on Iranian missile sites along Hormuz</strong> — CENTCOM confirms, targets described as "hardened sites" posing risk to international shipping (<a href="https://www.cnn.com/2026/03/17/middleeast/us-israel-iran-middle-east-war-day-19-what-we-know-intl-hnk" target="_blank">CNN</a>). <strong>Yanbu (Saudi Red Sea bypass) targeted by aerial attack</strong> — minimal impact per Reuters; this is the last intact bypass route for Saudi crude. Brent surges to <strong>$112.21/bbl (+12%)</strong> — highest since 2022. WTI $98.65. Trump threatens to "massively blow up" Iranian gas fields. US exploring Navy-escorted tankers with US govt-backed war insurance (FT). Macron calls for moratorium on energy infrastructure strikes. NATO allies discussing options. Brisbane ULP retail avg <strong>238.8¢/L</strong> (FuelRadar); BP TGP Brisbane today: ULP 227.6¢, diesel 268.9¢.</div>
+          <div class="sitrep-text"><strong>US drops 5,000-lb bunker buster bombs on Iranian missile sites along Hormuz</strong> — CENTCOM confirms, targets described as "hardened sites" posing risk to international shipping (<a href="https://www.cnn.com/2026/03/17/middleeast/us-israel-iran-middle-east-war-day-19-what-we-know-intl-hnk" target="_blank">CNN</a>). <strong>Yanbu (Saudi Red Sea bypass) targeted by aerial attack</strong> — minimal impact per Reuters. Brent surges to <strong>$112.21/bbl</strong> then briefly <strong>$115/bbl</strong> after Israel strikes Iran's South Pars gas field. WTI $97. Qatar says Iran attack took out <strong>17% of LNG export capacity</strong>. Ras Laffan fires brought under control. Physical Dubai/Oman crude surges to <strong>US$166.80/bbl</strong> — massive disconnect from Brent futures signalling severe physical scarcity. Two additional vessels hit near Hormuz/Qatar. UK MATO reports unknown projectile strike near Ras Laffan area. More than 20 vessels hit since war began.</div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">19–20 MAR</div>
+          <div class="sitrep-text"><strong>KEY DE-ESCALATION SIGNAL — Netanyahu: Israel will stop striking Iranian energy sites.</strong> After Brent briefly touched <strong>$119/bbl</strong> (highest since 2022), Netanyahu told press Israel is "helping the US open the Strait of Hormuz" and that Iran has "lost the ability to enrich uranium and make ballistic missiles." Trump confirmed he told Netanyahu "don't do that" — Israel complied. Brent fell back to <strong>$108.65 close</strong>. WTI $96.14. Netanyahu: "the war may end sooner than people think." Sources: <a href="https://www.cnbc.com/2026/03/19/oil-jumps-iran-strikes-qatar-lng-facility-supply-worries.html" target="_blank">CNBC</a> · <a href="https://finance.yahoo.com/news/oil-prices-give-up-gains-as-netanyahu-says-israel-will-help-us-reopen-strait-of-hormuz-iran-attacks-gulf-energy-infrastructure-140956618.html" target="_blank">Yahoo Finance/Goldman Sachs</a></div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">20 MAR</div>
+          <div class="sitrep-text">Day 21. <strong>EU asks for immediate reopening of Hormuz and moratorium on energy/water infrastructure strikes.</strong> UK sends military planners to US CENTCOM to develop "viable collective plan" for Hormuz (<a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-19-26" target="_blank">CNN</a>). Japan's PM Takaichi reaffirms alliance with Trump on Hormuz. <strong>Goldman Sachs: 16.1 mb/d of oil flows cut</strong> — accounting for all redirections. Iran says Hormuz "will not return to pre-war conditions." Pentagon seeks $200B additional war funds. Trump rules out US crude export ban. <strong>Russia 30-day sanctions waiver</strong>: 30 tankers with 19M barrels of Russian oil cleared to deliver. Israel strikes Iranian naval targets in the Caspian Sea — first-ever. Brent closes Friday at <strong>$112.19/bbl</strong> — highest of the war. US lifts sanctions on <strong>140 million barrels</strong> of Iranian oil for sale to allies (India, Japan). RBOB gasoline futures up +5.09%, 3.5-year high. US sends another 2,500 Marines (USS Boxer MEU, USS Tripoli) to Middle East. BP TGP Brisbane: diesel 279.3¢, ULP 232.6¢. Source: <a href="https://www.cnn.com/2026/03/20/middleeast/us-israel-iran-middle-east-war-day-21-what-we-know-intl-hnk" target="_blank">CNN Day 21</a> · <a href="https://en.wikipedia.org/wiki/2026_Iran_war" target="_blank">Wikipedia</a></div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">21–22 MAR</div>
+          <div class="sitrep-text">Days 22–23. <strong>Iran strikes Arad and Dimona</strong> (near Israel's nuclear research centre) — 100+ injured; first time Iran has targeted a site associated with Israel's nuclear programme. Iran fires ballistic missiles at <strong>Diego Garcia</strong> (joint US-UK Indian Ocean base) — intercepted, no damage. Saudi Arabia intercepts 3 ballistic missiles targeting Riyadh + 6 drones headed toward eastern oil installations. Energy Minister Bowen confirms: <strong>6 oil tanker shipments bound for Australia in April have been turned back or deferred</strong> — the first confirmed supply chain impact on Australia beyond price. Bowen says reserves secure until mid-April. National average ULP 219.5¢ (week to 15 Mar, AIP); diesel 245.6¢. QLD ULP avg rises to 244.9¢ (Petrolmate, 22 Mar). US national gas avg: $3.94/gallon (+$1 over one month, AAA). UKMTO raises maritime threat level to <strong>"CRITICAL"</strong> — Arabian Gulf, Strait of Hormuz, Gulf of Oman. <strong>22 nations</strong> issue joint statement expressing "readiness to contribute to ensure safe passage." Iran's parliament speaker Ghalibaf: "vital infrastructure across the region becomes a legitimate target" if Iranian power plants struck. Sources: <a href="https://www.ibtimes.com.au/australia-fuel-crisis-deepens-march-2026-panic-buying-soaring-prices-supply-warnings-1864000" target="_blank">IBTimes AU</a> · <a href="https://www.cbsnews.com/live-updates/iran-war-us-israel-gas-and-oil-prices-trump-netanyahu-strait-hormuz/" target="_blank">CBS News</a></div>
+        </div>
+        <div class="sitrep-item">
+          <div class="sitrep-date">22–23 MAR</div>
+          <div class="sitrep-text">Days 23–25. <strong>⚠ TRUMP ISSUES 48-HOUR ULTIMATUM:</strong> At 11:44pm UTC Saturday (7:44pm ET), Trump posted on Truth Social: "If Iran doesn't FULLY OPEN, WITHOUT THREAT, the Strait of Hormuz, within 48 HOURS from this exact point in time, the United States of America will hit and obliterate their various POWER PLANTS, STARTING WITH THE BIGGEST ONE FIRST!" Deadline: <strong>Monday 23 March, 7:44pm ET = Tuesday 24 March, ~9:44am AEST</strong>. Iran responds immediately: "All energy, IT and desalination infrastructure belonging to the US and Israel in the region will be targeted" if power plants struck. Iranian parliament's Ghalibaf: Hormuz will be "completely closed" if Trump acts. Trump also called NATO "cowards" for not helping. UK's Starmer agrees with Trump that reopening Hormuz is essential (BBC). Brent spikes to <strong>$113.44/bbl</strong> intraday Monday. WTI briefly exceeds <strong>$100/bbl</strong> for first time. US oil futures pre-open down 0.6% to $97.64 but reversed on ultimatum news. Iran claimed to shoot down an F-15 over Hormuz Island (unverified by US). CENTCOM Admiral Cooper: Iran's ability to threaten Hormuz "degraded." Sources: <a href="https://www.axios.com/2026/03/22/trump-iran-48-hour-ultimatum-strait-of-hormuz" target="_blank">Axios</a> · <a href="https://www.aljazeera.com/news/2026/3/22/trump-issues-48-hour-hormuz-strait-ultimatum-threatens-iran-power-plants" target="_blank">Al Jazeera</a> · <a href="https://www.nbcnews.com/world/iran/iran-unswayed-trumps-48-hour-deadline-threats-obliterate-energy-infras-rcna264607" target="_blank">NBC News</a> · <a href="https://www.cnbc.com/2026/03/22/iran-war-strait-of-hormuz-trump-oil-prices-economy.html" target="_blank">CNBC</a></div>
         </div>
       </div>
     </div>
@@ -928,55 +952,60 @@
     <div class="panel">
       <div class="panel-header">
         <div class="panel-title">Brisbane Pump Prices</div>
-        <div class="panel-tag">c/litre · ~17 Mar 2026</div>
+        <div class="panel-tag">c/litre · Petrolmate/NRMA/AIP TGP · 20–22 Mar 2026</div>
       </div>
       <div class="panel-body">
         <table class="price-table">
           <tr>
-            <td class="fuel-name">Unleaded 91 (ULP)<br><span style="color: var(--text-dim);">Retail avg · <a href="https://fuelradar.com.au/map/location/au/qld/4000/brisbane" target="_blank">FuelRadar</a> 19 Mar</span></td>
+            <td class="fuel-name">ULP 91 — QLD Retail avg<br><span style="color: var(--text-dim);"><a href="https://petrolmate.com.au/price-trends" target="_blank">Petrolmate · 22 Mar</a></span></td>
             <td class="fuel-trend up">▲</td>
-            <td style="color: var(--amber);">238.8¢</td>
+            <td style="color: var(--red);">244.9¢</td>
           </tr>
           <tr>
-            <td class="fuel-name">ULP 91 — Terminal Gate<br><span style="color: var(--text-dim);"><a href="https://www.bp.com/content/dam/bp/country-sites/en_au/australia/home/products-services/pricing/terminal-gate-price.pdf" target="_blank">BP TGP Brisbane · 19 Mar</a></span></td>
+            <td class="fuel-name">ULP 91 — Terminal Gate<br><span style="color: var(--text-dim);"><a href="https://www.bp.com/content/dam/bp/country-sites/en_au/australia/home/products-services/pricing/terminal-gate-price.pdf" target="_blank">BP TGP · 20 Mar (last published)</a></span></td>
             <td class="fuel-trend up">▲</td>
-            <td style="color: var(--amber);">227.6¢</td>
+            <td style="color: var(--amber);">232.6¢</td>
           </tr>
           <tr>
-            <td class="fuel-name">E10 Ethanol Blend<br><span style="color: var(--text-dim);">TGP: 229.4¢</span></td>
+            <td class="fuel-name">E10 — Terminal Gate<br><span style="color: var(--text-dim);">BP TGP · 20 Mar</span></td>
             <td class="fuel-trend up">▲</td>
-            <td style="color: var(--amber);">235.9¢</td>
+            <td style="color: var(--amber);">234.4¢</td>
           </tr>
           <tr>
-            <td class="fuel-name">Premium 95<br><span style="color: var(--text-dim);">BP TGP: 237.2¢</span></td>
+            <td class="fuel-name">Premium 95 — Terminal Gate<br><span style="color: var(--text-dim);">BP TGP · 20 Mar</span></td>
             <td class="fuel-trend up">▲</td>
-            <td style="color: var(--amber);">255.4¢</td>
+            <td style="color: var(--amber);">242.2¢</td>
           </tr>
           <tr>
-            <td class="fuel-name">Premium 98<br><span style="color: var(--text-dim);">FuelRadar avg</span></td>
+            <td class="fuel-name">Diesel — Terminal Gate<br><span style="color: var(--text-dim);">BP TGP · 20 Mar</span></td>
             <td class="fuel-trend up">▲</td>
-            <td style="color: var(--red);">266.3¢</td>
+            <td style="color: var(--red);">279.3¢</td>
           </tr>
           <tr>
-            <td class="fuel-name">Diesel<br><span style="color: var(--text-dim);">TGP: 268.9¢</span></td>
+            <td class="fuel-name">Diesel — East Brisbane Retail<br><span style="color: var(--text-dim);"><a href="https://fuelradar.com.au/map/station/d9cc85f073342293761328d3" target="_blank">FuelRadar · BP Lytton Rd</a></span></td>
             <td class="fuel-trend up">▲</td>
-            <td style="color: var(--red);">284.3¢</td>
+            <td style="color: var(--red);">294.9¢</td>
           </tr>
           <tr>
-            <td class="fuel-name">LPG</td>
-            <td class="fuel-trend">→</td>
-            <td style="color: var(--green);">105.9¢</td>
+            <td class="fuel-name">Sydney ULP 91 avg<br><span style="color: var(--text-dim);"><a href="https://www.mynrma.com.au/cars-and-driving/fuel-finder/weekly-report" target="_blank">NRMA weekly report</a></span></td>
+            <td class="fuel-trend up">▲</td>
+            <td style="color: var(--red);">229.6¢</td>
+          </tr>
+          <tr>
+            <td class="fuel-name">Sydney Diesel avg<br><span style="color: var(--text-dim);">NRMA · up +49.6¢ past week</span></td>
+            <td class="fuel-trend up">▲</td>
+            <td style="color: var(--red);">271.1¢</td>
           </tr>
         </table>
         <hr class="sep">
         <div style="color: var(--text-muted); line-height: 1.85;">
-          <strong style="color: var(--text);">Pre-war baseline (28 Feb):</strong> ~179¢ ULP<br>
-          <strong style="color: var(--text);">Rise since war:</strong> +59.8¢/L (+33%) to 19 Mar<br>
-          <strong style="color: var(--amber);">TGP vs retail gap:</strong> ~11¢ — slightly wide, ACCC monitoring<br>
-          <strong style="color: var(--red);">Diesel at retail:</strong> 284.3¢ avg — highest since 2022<br>
-          <strong style="color: var(--text);">Best day to fill:</strong> Tuesday (QLD)<br>
-          <strong style="color: var(--amber);">Forecast:</strong> Petrolmate predicts prices to rise ~15¢ further<br>
-          <strong style="color: var(--text);">Source:</strong> <a href="https://fuelradar.com.au/map/location/au/qld/4000/brisbane" target="_blank">FuelRadar</a> (live 19 Mar) · <a href="https://www.bp.com/content/dam/bp/country-sites/en_au/australia/home/products-services/pricing/terminal-gate-price.pdf" target="_blank">BP TGP PDF (19 Mar)</a>
+          <strong style="color: var(--text);">Pre-war baseline (28 Feb):</strong> ~179¢ ULP · ~185¢ diesel · ~169¢ AIP national avg<br>
+          <strong style="color: var(--red);">QLD ULP rise past week:</strong> +16.4¢ (+7.1%) — accelerating again on ultimatum news<br>
+          <strong style="color: var(--red);">National diesel TGP rise since war:</strong> +94¢/L (+51%) — highest on record per AIP<br>
+          <strong style="color: var(--red);">US retail gas:</strong> $3.94/gallon national avg (AAA, 22 Mar) — up $1+ in a month<br>
+          <strong style="color: var(--text);">Regional TGP (20 Mar):</strong> Cairns 284.9¢ · Gladstone 285.0¢ · Mackay 285.0¢ · Townsville 284.6¢<br>
+          <strong style="color: var(--amber);">⚠ Note:</strong> TGP last published 20 Mar (Thurs). AIP updates weekdays — new data expected today.<br>
+          <strong style="color: var(--text);">Sources:</strong> <a href="https://petrolmate.com.au/price-trends" target="_blank">Petrolmate</a> · <a href="https://www.mynrma.com.au/cars-and-driving/fuel-finder/weekly-report" target="_blank">NRMA Weekly</a> · <a href="https://www.aip.com.au/pricing/terminal-gate-prices" target="_blank">AIP TGP</a> · <a href="https://fuelradar.com.au" target="_blank">FuelRadar</a>
         </div>
       </div>
     </div>
@@ -1195,7 +1224,7 @@
     <div class="panel">
       <div class="panel-header">
         <div class="panel-title">Tanker Movement Intelligence — QLD &amp; Australia</div>
-        <div class="panel-tag">Feb 17 – Mar 17 2026 · Three-tier classification</div>
+        <div class="panel-tag">Feb 17 – Mar 20 2026 · Three-tier classification · Lloyd's List Intelligence · Euronews · Sharecafe (ASX)</div>
       </div>
       <div class="panel-body">
 
@@ -1283,7 +1312,12 @@
             </tr>
           </tbody>
         </table>
-        <div style="color: var(--text-muted); margin-bottom: 14px; line-height: 1.85;">Largo Eagle &amp; Nord Ventura: Reuters confirmed · Exxon/Vitol; est. arrival Australia late April · Charter ~$6M/vessel ($20/bbl vs $2/bbl normal). Shenlong Suezmax: CNN confirmed transiting Hormuz 12 Mar bound for Mumbai — confirms Saudi crude moving despite crisis.</div>
+        <div style="color: var(--text-muted); margin-bottom: 14px; line-height: 1.85;">
+          Largo Eagle &amp; Nord Ventura: Reuters confirmed · Exxon/Vitol; est. arrival Australia late April · Charter ~$6M/vessel ($20/bbl vs $2/bbl normal).<br>
+          Shenlong Suezmax: <a href="https://www.euronews.com/business/2026/03/18/iran-oil-exports-continue-as-tankers-cross-the-strait-of-hormuz-despite-conflict" target="_blank">Euronews/AP 18 Mar</a> — photographed arriving Mumbai Port 12 Mar after clearing Hormuz.<br>
+          <strong>Global Hormuz transit total since 28 Feb:</strong> ~90 ships per <a href="https://www.euronews.com/business/2026/03/18/iran-oil-exports-continue-as-tankers-cross-the-strait-of-hormuz-despite-conflict" target="_blank">Lloyd's List Intelligence</a> — majority "dark transits" (Iran-linked, sanctions-evading). India/Pakistan-linked vessels now also transiting under negotiated passage.<br>
+          <strong>Australian import supply status:</strong> <a href="https://www.sbs.com.au/news/article/australia-fuel-shortage-2026/zl0grg7ey" target="_blank">Energy Minister Bowen (mid-Mar)</a>: "We continue to see expected ships arrive in our ports."
+        </div>
 
         <!-- TIER 3: GLOBAL DISRUPTIONS CONTEXT -->
         <div style="letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--red-dim);">
@@ -1338,9 +1372,16 @@
             <tr>
               <td><span class="vessel-name">Qatari LNG Fleet</span></td>
               <td><span class="vessel-type type-lpg">LNG</span></td>
-              <td>Force majeure declared 4 Mar — Kuwait force majeure 7 Mar</td>
+              <td>Force majeure declared 4 Mar — Kuwait 7 Mar. Ras Laffan hit 18 Mar (17% capacity damaged, fires controlled)</td>
               <td>4+ Mar</td>
               <td><span style="color: var(--text-muted);">Not petrol/diesel — affects AUS gas/power costs</span></td>
+            </tr>
+            <tr>
+              <td><span class="vessel-name">~90 total vessels</span><br><span style="color:var(--text-muted);">Lloyd's List Intelligence</span></td>
+              <td><span class="vessel-type type-vlcc">Mixed Oil/Cargo</span></td>
+              <td>Total Hormuz transits since 28 Feb — mostly "dark transits" (Iran-linked, sanctions-evading vessels). India/Pakistan-linked tankers also transiting under negotiated passage.</td>
+              <td>28 Feb – 18 Mar</td>
+              <td><span style="color: var(--amber);">Selective access — not commercial Western tankers</span></td>
             </tr>
             <tr>
               <td><span class="vessel-name">Saudi/UAE pipeline tankers</span></td>
@@ -1361,26 +1402,26 @@
   <div class="panel" style="margin-bottom: 16px;">
     <div class="panel-header">
       <div class="panel-title">Forward Outlook — Scenarios</div>
-      <div class="panel-tag">EIA STEO (10 Mar) · Goldman Sachs · CSIS · Al Jazeera · Wood Mackenzie · updated 18 Mar</div>
+      <div class="panel-tag">EIA STEO (10 Mar) · Goldman Sachs · CNBC CFO Council · Macquarie · updated 23 Mar</div>
     </div>
     <div class="panel-body">
       <div class="outlook-grid">
         <div class="outlook-card">
           <div class="outlook-horizon horizon-near">▲ NEAR-TERM (1–2 weeks)</div>
           <div class="outlook-text">
-            Brent likely $95–110. EIA (10 Mar) forecasts Brent above $95/bbl for next two months. Selective Hormuz passage for non-Western ships now emerging — but not yet systematic. Fujairah attack means both main bypass routes now compromised. US Navy escorts not ready before end of March at earliest. Brisbane ULP likely to hold 230–245¢. Diesel rationing risk in regional QLD remains. ACCC meetings with fuel companies this week.
+            <strong style="color:var(--red);">Trump ultimatum deadline expires ~9:44am AEST Tuesday 24 Mar.</strong> If US strikes Iranian power plants: Iran threatens complete Hormuz closure + all US/Israeli regional energy infrastructure targeted. If Iran concedes: Brent could fall $10–20/bbl rapidly. If standoff continues: Brent $110–120, QLD ULP heading toward 260–280¢. CNBC CFO Council set their own ~2-week deadline before economy requires "considerable repricing." Goldman Sachs: prices could persist through 2027. Futures backwardation (May $112 vs Aug $95) shows market still pricing in resolution.
           </div>
         </div>
         <div class="outlook-card">
           <div class="outlook-horizon horizon-mid">◆ MID-TERM (1–2 months)</div>
           <div class="outlook-text">
-            EIA forecasts Brent falling below $80/bbl by Q3 2026 if conflict resolves — but this assumes Hormuz gradually reopens. If closed beyond 4 weeks: Korean/Singapore refinery crude shortages start hitting Australian product tanker loadings late April. Largo Eagle / Nord Ventura (US Gulf) arrive late April as partial offset. Australia's reserve days likely to continue falling. Petrol analyst worst-case: 350¢/L. Formal rationing cannot be ruled out if reserves fall below 20 days.
+            Six Australian April shipments already turned back — tipping point arrives sooner than modelled. If Hormuz remains closed and Iran escalates: Korean/Singapore refineries lose crude supply, Australian product tanker loadings fall late April. Macquarie: "mid-April could mark a tipping point" for rationing. Lytton deferral (+300ML) and MSO releases buy time. Petrol worst-case analyst forecast: 350¢/L. IEA urged Australians to work from home, reduce speed, use public transport to conserve supply.
           </div>
         </div>
         <div class="outlook-card">
           <div class="outlook-horizon horizon-far">◇ RESOLUTION SCENARIO</div>
           <div class="outlook-text">
-            EIA forecasts Brent ~$70/bbl by end of 2026 and $64/bbl average in 2027 on resolution. Goldman Sachs: ~$14/bbl war premium — stripping that gives $85–88 baseline. Brisbane ULP would likely revert to 170–185¢ over 4–8 weeks post-reopening. Iran's selective passage policy and yuan-denominated transit proposal suggest Tehran is keeping diplomatic options open. Australia's structural refining vulnerability (2 refineries, 90% import dependent) unchanged regardless of outcome.
+            <a href="https://www.cnn.com/2026/03/20/energy/oil-gas-prices-intl-hnk" target="_blank">Goldman Sachs (CNN)</a>: gradual Hormuz recovery from April → Brent $70s by Q4 2026. EIA STEO: below $80/bbl in Q3, ~$70 by year-end on resolution; $64/bbl avg in 2027. Even post-reopening, an enhanced risk premium is "here to stay" as facilities are damaged and production restoration takes time — Qatar's Ras Laffan alone takes up to 5 years to fully repair. Australia's structural refining vulnerability (2 refineries, 90% import dependent) unchanged.
           </div>
         </div>
       </div>
@@ -1459,6 +1500,13 @@
       </div>
 
       <!-- BONUS: UPSTREAM CASCADE NOT YET VISIBLE -->
+      <div style="background: var(--surface2); border-left: 5px solid var(--green); padding: 16px 18px; margin-bottom: 14px; line-height: 1.9;">
+        <strong style="color: var(--green);">⑦ NEW TODAY (20 Mar) — Lytton Maintenance Deferred: +300ML Domestic Supply</strong><br>
+        Ampol announced this morning (ASX) that the scheduled Turnaround and Inspection (T&amp;I) shutdown at the Lytton refinery — originally planned for June 2026 — has been <strong style="color:var(--text);">deferred to August 2026</strong>. This keeps the refinery running through the peak risk window and delivers approximately <strong style="color:var(--text);">300 million litres of additional petrol, diesel and jet fuel</strong> to the domestic market. The FSSP support collar was also raised from 6.4 to 10.0 Acpl, improving Lytton's financial viability during periods of weak margins.
+        Combined with the temporary fuel standard relaxation (adding 80–100ML/month), this is the most significant positive domestic supply signal since the crisis began. It does not replace imports — Australia still needs tankers — but it meaningfully extends the runway before rationing would become necessary.
+        <br><br><em style="color:var(--text-dim);">Sources: <a href="https://www.sharecafe.com.au/2026/03/20/ampol-welcomes-fssp-amendments-and-defers-refinery-maintenance/" target="_blank">Sharecafe — ASX announcement, 20 Mar 2026</a> · <a href="https://www.tipranks.com/news/company-announcements/ampol-gains-stronger-fuel-security-support-and-defers-lytton-outage-to-bolster-supply" target="_blank">TipRanks</a> · <a href="https://www.fool.com.au/2026/03/20/ampol-welcomes-stronger-refinery-support-and-domestic-supply-boost/" target="_blank">Motley Fool AU</a></em>
+      </div>
+
       <div style="background: var(--surface2); border-left: 5px solid var(--cyan); padding: 16px 18px; line-height: 1.9;">
         <strong style="color: var(--cyan);">Bonus signal — Fertiliser cascade into food prices (not fuel, but related)</strong><br>
         A signal most observers are missing: CSIS analysis confirms <strong style="color:var(--text);">nearly half of all seaborne urea exports and 44% of global sulphur production transit Hormuz</strong> — far exceeding its oil role as a chokepoint. Urea prices jumped 32% in the first week of the crisis (New Orleans hub: $516 → $683/tonne). <strong style="color:var(--text);">Australia's autumn planting window is now</strong>. If fertiliser supply is disrupted for the current planting cycle, downstream food price inflation feeds through in Q3–Q4 2026 <em>regardless</em> of when Hormuz reopens. This is a second-order impact on household cost-of-living that won't appear in any fuel price tracker.
@@ -1469,29 +1517,29 @@
     </div>
   </div>
 
-  <!-- EDITION 003 INTELLIGENCE UPDATE -->
+  <!-- EDITION 005 INTELLIGENCE UPDATE -->
   <div class="panel" id="updatePanel" style="display: block;">
     <div class="panel-header">
-      <div class="panel-title">Edition 003 Intelligence Update</div>
-      <div class="panel-tag" id="updateTimestamp">Compiled 19 Mar 2026, AEST · Sources: Oilprice.com, BP TGP PDF, FuelRadar, ACCC, CBS News, CNN, Al Jazeera, Iran Intl, CNBC, Wikipedia Hormuz Crisis</div>
+      <div class="panel-title">Edition 005 Intelligence Update — ULTIMATUM DEADLINE DAY</div>
+      <div class="panel-tag" id="updateTimestamp">Compiled 20 Mar 2026, AEST · Sources: CNBC, CNN Day 21, CBS News, Yahoo Finance, BP TGP PDF (20 Mar), Britannica, Wikipedia, Al Jazeera, Goldman Sachs, IEA OMR, Fortune.com</div>
     </div>
     <div class="panel-body" id="updateContent" style="line-height: 1.9; color: var(--text);">
-      <strong style="color: var(--red);">⚠ MAJOR ESCALATION — SITUATION SUMMARY · 19 March 2026, Day 19</strong><br><br>
+      <strong style="color: var(--red);">⚠ ULTIMATUM DEADLINE DAY — SITUATION SUMMARY · 23 March 2026, Day 25</strong><br><br>
 
-      <strong>🛢️ Crude prices — sharp surge:</strong> Brent <strong>$112.21/bbl (+11.96% today)</strong> per <a href="https://oilprice.com/futures/brent/" target="_blank">Oilprice.com</a> — highest since 2022, touching $113 intraday. WTI <strong>$98.65/bbl (+3.7%)</strong>. The market is pricing in a convergence of geopolitical shocks; total Middle East supply disruption now estimated at 7–10M bbl/day (7–10% of global demand). <a href="https://www.eia.gov/outlooks/steo/" target="_blank">EIA STEO</a> forecast of Brent above $95/bbl for two months now looks too conservative — markets heading toward $120.<br><br>
+      <strong>🛢️ Crude prices — surging again on ultimatum news:</strong> Brent <strong>$112.19/bbl</strong> Friday close (highest of the war), spiking to <strong>$113.44/bbl intraday Monday 23 Mar</strong> on Trump's 48-hour ultimatum before retreating to ~$111. WTI briefly exceeded <strong>$100/bbl</strong> for the first time. Strong futures backwardation (May $112 vs Jul $100 vs Aug $95) shows the market prices in eventual resolution — but if Hormuz stays closed beyond the CNBC CFO Council's "~2-week" deadline, "we're going to reprice the barrels of oil here considerably higher" (John Kilduff, Again Capital). Goldman Sachs says prices could persist through 2027. Pre-market US futures dipped 0.6% to $97.64 before the ultimatum — now reversed. Sources: <a href="https://oilprice.com/futures/brent/" target="_blank">Oilprice.com</a> · <a href="https://www.cnbc.com/2026/03/22/iran-war-strait-of-hormuz-trump-oil-prices-economy.html" target="_blank">CNBC CFO Council</a> · <a href="https://fortune.com/2026/03/22/stock-market-today-dow-futures-oil-prices-trump-strait-of-hormuz-deadline-iran-war/" target="_blank">Fortune</a><br><br>
 
-      <strong>🌊 Hormuz + US bunker busters + Yanbu attacked:</strong> US CENTCOM dropped 5,000-lb bunker buster bombs on Iranian missile sites along the Hormuz coastline today. Saudi Arabia's Red Sea port of Yanbu — currently the last functional bypass route — was targeted in an aerial attack (minimal impact reported per <a href="https://www.iranintl.com/en/liveblog/202603119917" target="_blank">Reuters/Iran Intl</a>). Hormuz transits nearly doubled to <strong>8/day</strong> per <a href="https://www.aljazeera.com/economy/2026/3/18/iran-allowing-more-ships-through-strait-of-hormuz-data-shows" target="_blank">Windward/Al Jazeera</a> — still 95% below pre-war. All three bypass routes are now compromised. See <a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis" target="_blank">Wikipedia Hormuz Crisis</a>.<br><br>
+      <strong>🌊 Hormuz — Trump ultimatum expires today 9:44am AEST Tuesday:</strong> Trump posted at 11:44pm UTC Saturday (7:44pm ET): "If Iran doesn't FULLY OPEN, WITHOUT THREAT, the Strait of Hormuz, within 48 HOURS..." deadline = Tuesday 24 Mar ~9:44am AEST. Iran is unswayed — parliament speaker Ghalibaf says Hormuz will be "completely closed" and "all US/Israeli energy, IT and desalination infrastructure in the region" targeted if power plants struck. Iran also offered cautious opening to "neutral vessels" that coordinate with local authorities — but this is not the "full open, without threat" Trump demands. CENTCOM Admiral Cooper says Iran's ability to threaten Hormuz "degraded" after 5,000-lb bunker busters. <strong>22 nations signed joint Hormuz statement</strong> (UK, France, Germany, Italy, Netherlands, Japan, Canada, South Korea, NZ, Denmark and others). Wikipedia records <a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis" target="_blank">21+ confirmed attacks on merchant ships</a>. UKMTO threat level: <strong>CRITICAL</strong>. Sources: <a href="https://www.axios.com/2026/03/22/trump-iran-48-hour-ultimatum-strait-of-hormuz" target="_blank">Axios</a> · <a href="https://www.nbcnews.com/world/iran/iran-unswayed-trumps-48-hour-deadline-threats-obliterate-energy-infras-rcna264607" target="_blank">NBC News</a> · <a href="https://www.aljazeera.com/news/2026/3/22/trump-issues-48-hour-hormuz-strait-ultimatum-threatens-iran-power-plants" target="_blank">Al Jazeera</a><br><br>
 
-      <strong>💥 Gulf energy infrastructure under sustained attack:</strong> Iran struck Qatar's Ras Laffan LNG terminal (18 Mar) — world's largest LNG export terminal. Kuwait's Mina al-Ahmadi refinery hit by drone (limited fire). UAE Habshan gas facility and Bab oil/gas field operations suspended. Saudi Arabia intercepted 35 Iranian drones targeting eastern oil installations. Fujairah OIZ and Shah gas field (world's largest ultra-sour gas plant) previously struck 14–16 Mar. Sources: <a href="https://www.cbsnews.com/live-updates/iran-war-us-israel-persian-gulf-strait-of-hormuz-trump-netanyahu/" target="_blank">CBS News</a> · <a href="https://www.cnbc.com/2026/03/17/iran-war-uae-energy-gas-field-oil-fujairah-strait-of-hormuz.html" target="_blank">CNBC</a><br><br>
+      <strong>💥 Escalation this weekend — new attacks both sides:</strong> Iran struck <strong>Arad and Dimona</strong> (near Israel's nuclear research centre) on Saturday 22 Mar — 100+ injured, first targeting of Israel's nuclear-associated sites. Iran fired ballistic missiles at <strong>Diego Garcia</strong> (US-UK Indian Ocean base) — intercepted, no damage; Netanyahu said Iran "now has the capacity to reach deep into Europe." Saudi Arabia intercepted 3 ballistic missiles targeting Riyadh + 6 drones toward eastern oil region. Iran claimed to shoot down an F-15 over Hormuz Island (US has not confirmed). Cumulative energy damage: Ras Laffan −17% LNG capacity (5-year repair), South Pars gas field (Iran), Fujairah OIZ + Shah gas field, Yanbu, Kuwait Mina al-Ahmadi, Abu Dhabi Habshan + Bab. Sources: <a href="https://www.cbsnews.com/live-updates/iran-war-us-israel-gas-and-oil-prices-trump-netanyahu-strait-hormuz/" target="_blank">CBS News</a> · <a href="https://gulfnews.com/uae/usisrael-war-on-iran-day-23-trump-gives-iran-48-hours-to-reopen-strait-of-hormuz-qatar-helicopter-crashes-1.500482371" target="_blank">Gulf News</a><br><br>
 
-      <strong>⛽ Brisbane pump prices — rising again:</strong> ULP 91 retail average <strong>238.8¢/L</strong> (<a href="https://fuelradar.com.au/map/location/au/qld/4000/brisbane" target="_blank">FuelRadar, 19 Mar live</a>) · diesel retail avg <strong>284.3¢/L</strong>. BP Terminal Gate Price today: ULP <strong>227.6¢</strong>, diesel <strong>268.9¢</strong>, P95 <strong>237.2¢</strong>, E10 <strong>229.4¢</strong> (<a href="https://www.bp.com/content/dam/bp/country-sites/en_au/australia/home/products-services/pricing/terminal-gate-price.pdf" target="_blank">BP TGP PDF 19 Mar</a>). ACCC providing weekly crisis monitoring — notes prices rose as fast or faster than wholesale since 20 Feb. Petrolmate forecasts a further ~15¢ rise. Sources: <a href="https://www.accc.gov.au/consumers/petrol-and-fuel/petrol-price-cycles-in-the-5-largest-cities" target="_blank">ACCC fuel monitor</a>.<br><br>
+      <strong>⛽ Queensland &amp; Australian pump prices — 22 Mar snapshot:</strong> <a href="https://petrolmate.com.au/price-trends" target="_blank">Petrolmate (22 Mar)</a>: Queensland ULP avg <strong>244.9¢/L</strong> — up 16.4¢ (+7.1%) in past week. <a href="https://www.mynrma.com.au/cars-and-driving/fuel-finder/weekly-report" target="_blank">NRMA weekly</a>: Sydney ULP avg 229.6¢ (+70.1¢ from Feb 15 cycle low), diesel 271.1¢ (+49.6¢ this week). BP Lytton Road East Brisbane retail diesel: 294.9¢ (FuelRadar). BP TGP last published (20 Mar): ULP 232.6¢, diesel 279.3¢, P95 242.2¢. National AIP avg (week to 15 Mar): ULP 219.5¢, diesel 245.6¢ — both well above. US national avg gasoline: $3.94/gallon (+$1 in one month, AAA). ACCC <a href="https://www.accc.gov.au/consumers/petrol-and-fuel/petrol-price-cycles-in-the-5-largest-cities" target="_blank">weekly monitoring</a>: prices in all 8 capital cities rising as fast as wholesale. <strong>Ultimatum-driven further rises expected this week.</strong> New TGP expected from AIP today (Mon 23 Mar). Sources: <a href="https://petrolmate.com.au/price-trends" target="_blank">Petrolmate</a> · <a href="https://www.mynrma.com.au/cars-and-driving/fuel-finder/weekly-report" target="_blank">NRMA</a> · <a href="https://www.aip.com.au/pricing/terminal-gate-prices" target="_blank">AIP</a><br><br>
 
-      <strong>🏭 Australian reserves — deteriorating:</strong> Est. petrol <strong>~27 days</strong>, diesel <strong>~24 days</strong>, jet <strong>~27 days</strong> (extrapolated from 14 Mar official data). Next DISR update expected Mon 23 Mar. Tanker arrivals still broadly normal — shortages remain distribution/panic-buying driven. <em>Largo Eagle</em> &amp; <em>Nord Ventura</em> (Houston, ~600K bbl) still en route — arrival late April. US exploring Navy-escorted tanker insurance scheme (FT). Sources: <a href="https://www.sbs.com.au/news/topic/australia" target="_blank">SBS</a> · <a href="https://www.abc.net.au/news" target="_blank">ABC</a>.<br><br>
+      <strong>🏭 Australian reserves &amp; supply — 6 April shipments turned back (major new signal):</strong> Energy Minister Bowen confirmed (21 Mar) <strong>six oil tanker shipments bound for Australia in April have been turned back or deferred</strong> due to escalating tensions — the first confirmed supply chain disruption reaching Australian shores beyond price. Official reserve figures: petrol <strong>38 days</strong>, diesel/jet <strong>30 days</strong> (as at 21 Mar, including ~6 days petrol + 5 days diesel drawn from MSO reserves). Bowen: "situation secure until mid-April." Macquarie's Dr De Mello warns that if tankers face continued delays, <strong>mid-April could mark a tipping point</strong>. Panic buying has seen demand spike 50% in some areas; NSW had 107 stations without diesel, 42 completely out of fuel (mid-Mar). Government measures: 762ML MSO released, fuel quality standards lowered, Lytton T&I deferred (+300ML), FSSP raised, US lifted sanctions on 140M barrels Iranian oil for allies. Sources: <a href="https://www.ibtimes.com.au/australia-fuel-crisis-deepens-march-2026-panic-buying-soaring-prices-supply-warnings-1864000" target="_blank">IBTimes AU (22 Mar)</a> · <a href="https://lighthouse.mq.edu.au/article/2026/march-2026/could-australia-run-out-of-petrol" target="_blank">Macquarie/Lighthouse</a> · <a href="https://www.sbs.com.au/news/article/how-do-australias-fuel-prices-stack-up-globally/nph9r350t" target="_blank">SBS</a><br><br>
 
-      <strong>📡 Inflow signal — FORWARD RISK ELEVATED, TIMELINE MOVED FORWARD:</strong> Arrivals still normal today but the Yanbu attack means ALL bypass routes compromised. The supply crunch wave front moves from "late April" to potentially "mid-April." Watch MR/LR product tanker arrivals at Brisbane via <a href="https://www.vesselfinder.com/ports/AUBNE001" target="_blank">VesselFinder AUBNE</a> and <a href="https://qships.tmr.qld.gov.au/webx/" target="_blank">QSHIPS QLD</a> for the first real-time signal of reduced inflows.
+      <strong>📡 Inflow signal + QSHIPS NOTE:</strong> Arrivals at Australian ports still broadly normal today. Netanyahu's commitment to stop striking energy sites is a potential resolution signal — if genuine, it could modestly ease the mid-April forward risk. However, Iran's stated position that Hormuz "will not return to pre-war conditions" tempers any optimism. Watch for MR/LR product tanker arrivals via <a href="https://www.vesselfinder.com/ports/AUBNE001" target="_blank">VesselFinder AUBNE</a>. <strong>For Queensland-specific vessel data:</strong> <a href="https://qships.tmr.qld.gov.au/webx/" target="_blank">QSHIPS (public)</a> shows all QLD port movements — click Ship Movements tab, select Brisbane from the All Ports dropdown, filter by Last 7 Days or Last 30 Days. You can export to Excel. Full vessel details (cargo, operator, berth) require industry login. The free public view shows vessel name, type, arrival/departure times and berth, which is enough to track tanker frequency. VesselFinder and QSHIPS together give the best free picture of Brisbane inflows.
 
       <hr class="sep" style="margin: 18px 0 14px;">
-      <div style="font-family:'Syne',sans-serif; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--amber); margin-bottom:12px;">§ Sources — Edition 003 · all links open in new tab</div>
+      <div style="font-family:'Syne',sans-serif; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--amber); margin-bottom:12px;">§ Sources — Edition 005 · all links open in new tab</div>
       <div class="source-list">
         <div class="source-item">
           <div class="src-label">Crude Oil Prices</div>
@@ -1528,10 +1576,13 @@
           <a href="https://www.geopoliticalmonitor.com/dire-straits-the-hormuz-closure-and-global-commodity-markets/" target="_blank">Geopolitical Monitor — commodity markets</a>
         </div>
         <div class="source-item">
-          <div class="src-label">Live Tanker Tracking</div>
-          <a href="https://www.vesselfinder.com/ports/AUBNE001" target="_blank">VesselFinder — Port of Brisbane</a>
-          <a href="https://qships.tmr.qld.gov.au/webx/" target="_blank">QSHIPS — Queensland ship movements</a>
+          <div class="src-label">Live Tanker &amp; QLD Shipping</div>
+          <a href="https://www.vesselfinder.com/ports/AUBNE001" target="_blank">VesselFinder — Port of Brisbane (free)</a>
+          <a href="https://qships.tmr.qld.gov.au/webx/" target="_blank">QSHIPS — QLD ship movements (public)</a>
+          <a href="https://www.msq.qld.gov.au/Shipping/Shipping-movements" target="_blank">MSQ — How to use QSHIPS (guide)</a>
           <a href="https://www.marinetraffic.com/en/ais/home/centerx:153.17/centery:-27.36/zoom:12" target="_blank">MarineTraffic — Brisbane port</a>
+          <a href="https://www.myshiptracking.com/ports/port-of-brisbane-in-au-australia-id-108" target="_blank">MyShipTracking — Port of Brisbane</a>
+          <a href="https://kpler.com" target="_blank">Kpler — cargo volumes (commercial)</a>
         </div>
         <div class="source-item">
           <div class="src-label">Industry &amp; Wholesale</div>
@@ -1547,7 +1598,7 @@
 
 <!-- FOOTER -->
 <div class="footer">
-  <div>FUEL SECURITY BRIEF · Edition 003 · 19 March 2026 · Brisbane, QLD</div>
+  <div>FUEL SECURITY BRIEF · Edition 005 · 23 March 2026 · Brisbane, QLD · ULTIMATUM DEADLINE DAY</div>
   <div>
     <a href="https://commodity.com/energy/crude-oil/" target="_blank" style="color:var(--text-dim);">Commodity.com</a> ·
     <a href="https://www.eia.gov/outlooks/steo/" target="_blank" style="color:var(--text-dim);">EIA STEO</a> ·
@@ -1573,15 +1624,15 @@ const priceCtx = document.getElementById('priceChart').getContext('2d');
 new Chart(priceCtx, {
   type: 'line',
   data: {
-    labels: ['1 Dec', '15 Dec', '1 Jan', '15 Jan', '1 Feb', '16 Feb', '1 Mar', '9 Mar', '17 Mar', '19 Mar'],
+    labels: ['1 Dec', '15 Dec', '1 Jan', '15 Jan', '1 Feb', '16 Feb', '1 Mar', '9 Mar', '17 Mar', '19 Mar', '22 Mar', '23 Mar'],
     datasets: [{
       label: 'Brisbane ULP 91 (¢/L)',
-      data: [158, 161, 163, 160, 162, 155, 179, 187, 229, 238.8],
+      data: [158, 161, 163, 160, 162, 155, 179, 187, 229, 238.8, 244.9, 247],
       borderColor: '#e8a930',
       backgroundColor: 'rgba(150,88,10,0.07)',
       borderWidth: 2,
       pointBackgroundColor: '#e8a930',
-      pointRadius: [3,3,3,3,3,4,4,4,5,5],
+      pointRadius: [3,3,3,3,3,4,4,4,5,5,5,5],
       fill: true,
       tension: 0.4
     }]
@@ -1611,26 +1662,26 @@ const crudeCtx = document.getElementById('crudeChart').getContext('2d');
 new Chart(crudeCtx, {
   type: 'line',
   data: {
-    labels: ['28 Feb', '2 Mar', '5 Mar', '8 Mar', '10 Mar', '11 Mar', '13 Mar', '15 Mar', '16 Mar', '18 Mar', '19 Mar'],
+    labels: ['28 Feb', '2 Mar', '5 Mar', '8 Mar', '10 Mar', '11 Mar', '13 Mar', '15 Mar', '16 Mar', '18 Mar', '19 Mar', '20 Mar', '23 Mar'],
     datasets: [
       {
         label: 'Brent',
-        data: [70, 80, 83, 101, 89, 120, 103, 103, 101.93, 100.22, 112.21],
+        data: [70, 80, 83, 101, 89, 120, 103, 103, 101.93, 100.22, 112.21, 108.65, 112.19],
         borderColor: '#e8a930',
         backgroundColor: 'transparent',
         borderWidth: 2,
         pointBackgroundColor: '#e8a930',
-        pointRadius: [4,3,3,4,4,5,3,3,4,3,5],
+        pointRadius: [4,3,3,4,4,5,3,3,4,3,5,4,5],
         tension: 0.3
       },
       {
         label: 'WTI',
-        data: [66, 76, 79, 95, 77, 102, 93, 93, 94.62, 95.11, 98.65],
+        data: [66, 76, 79, 95, 77, 102, 93, 93, 94.62, 95.11, 98.65, 96.14, 100.08],
         borderColor: '#2bc5c5',
         backgroundColor: 'transparent',
         borderWidth: 1.5,
         pointBackgroundColor: '#2bc5c5',
-        pointRadius: [3,3,3,3,3,4,3,3,3,3,4],
+        pointRadius: [3,3,3,3,3,4,3,3,3,3,4,3,4],
         tension: 0.3,
         borderDash: [4,2]
       }
